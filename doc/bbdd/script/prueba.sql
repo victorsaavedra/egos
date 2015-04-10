@@ -1,0 +1,1 @@
+						Hibernate: select metamodel0_.id_metamodel as id_metam1_3_0_, metamodel0_.jumbo as jumbo2_3_0_, metamodel0_.nom as nom3_3_0_, metamodel0_.ordre as ordre4_3_0_ from public.metamodel metamodel0_ where metamodel0_.id_metamodel=?

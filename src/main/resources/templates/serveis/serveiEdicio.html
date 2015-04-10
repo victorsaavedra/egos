@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html data-layout-decorator="layout">
+
+	<body>
+		<div class="container" data-layout-fragment="content">
+			<!-- Inici Body -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title" data-th-text="${serveisForm.servei.nom}">
+						nomServei
+						<button class="btn btn-default pull-right" type="button" data-toggle="modal" href="#deleteServei" data-th-text="#{servei.edicio.servei.baixa}">Donar servei de baixa</button>
+						<button class="btn btn-default pull-right btn-panel-title" data-toggle="modal" type="button" data-th-text="#{servei.edicio.servei.novaVersio}" href="#novaVersio">Nova versió del servei</button>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<form id="formServei" data-th-action="@{/}" data-th-object="${serveisForm}" data-th-method="put" class="form-horizontal">
+						<fieldset>
+							<legend data-th-text="#{servei.form.label.proveidorServei}">Proveïdor del servei</legend>
+							<div class="form-group">
+								<label for="sistemaInformacio" class="col-md-3 control-label" data-th-text="#{servei.form.label.sistemaInformacio}">Sistema d'Informació</label>
+								<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#nouSistemaInformacio" data-th-text="#{servei.form.sistemaInformacio.titol}">Nou Sistema d'informació</button>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="sistemaInformacio" data-th-field="*{servei.sistemaInformacio.nom}" value="*{servei.sistemaInformacio.nom}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="grupGauss" class="col-md-3 control-label" data-th-text="#{servei.form.label.grupGauss}">Grup de Gauss per proves</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="grupGauss" data-th-field="*{servei.grupGauss}" value="*{servei.grupGauss}" />
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="tab-content">
+									<div class="tab-pane active" id="tabOperacions">
+										<div class="panel panel-info">
+											<div class="panel-heading">
+												<label data-th-text="#{servei.form.table.responsable.dadesTitol}">Dades dels responsables técnics</label> 
+												<label class="linkCrudAction pull-right" data-toggle="modal" href="#responsablesTecnicsEdicio">
+													<button class="btn btn-default" type="button">
+														<span class="fa fa-plus" data-toggle="tooltip" data-placement="top" title="Afegir" data-th-text="#{global.button.afegir}">Afegir</span>
+													</button>
+												</label>
+											</div>
+											<div class="table-responsive">
+												<table class="table table-striped ">
+													<thead>
+														<tr>
+															<th class="col-md-5" data-th-text="#{servei.form.table.responsable.nom}">Nom i cognoms</th>
+															<th class="col-md-2" data-th-text="#{servei.form.table.responsable.departament}">Departament</th>
+															<th class="col-md-2" data-th-text="#{servei.form.table.responsable.rol}">Rol</th>
+															<th class="col-md-1" data-th-text="#{servei.form.table.responsable.telefon}">Teléfon</th>
+															<th class="col-md-3" data-th-text="#{servei.form.table.responsable.email}">Email</th>
+															<th class="col-md-1" data-th-text="#{servei.form.table.responsable.accio}">Acció</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr data-th-each="serveiResponsables : ${serveisForm.servei.serveiResponsables}">
+															<td data-th-text="${serveiResponsables.responsable.nomCognoms}">Nom</td>
+															<td data-th-text="${serveiResponsables.responsable.departament}">Departament</td>
+															<td data-th-text="${serveiResponsables.responsable.rol.nom}">Rol</td>
+															<td data-th-text="${serveiResponsables.responsable.telefon}">Teléfon</td>
+															<td data-th-text="${serveiResponsables.responsable.mail}">Email</td>
+															<td>
+																<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#deleteRespTecnic">
+																	<span class="fa fa-trash-o"></span>
+																</button>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend data-th-text="#{servei.form.label.controlAcces}">Control d'accès</legend>
+							<div class="form-group">
+								<div class="col-md-4">
+									<label for="formatSortida" class="col-md-5 control-label" data-th-text="#{servei.form.label.busPrivat}">Bus Privat</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="accesIntranetUPC" class="col-md-3 control-label" data-th-text="#{servei.form.label.accesIntranet}">Accés intranet UPC</label>
+								<div class="col-md-4">
+									<select id="accesIntranetUPC" class="form-control">
+										<option data-th-selected="*{servei.accesIntranet == 1}" value="1" data-th-text="#{global.label.select.si}">Sí</option>
+										<option data-th-selected="*{servei.accesIntranet == 2}" value="2" data-th-text="#{global.label.select.no}">No</option>
+									</select>
+								</div>
+							</div>
+							<div id="js-accesIntranet" data-th-class="*{servei.accesIntranet == 2} ? hide : show">
+								<div class="form-group">
+									<label for="nivellSeguretatPrivat" class="col-md-3 control-label" data-th-text="#{servei.form.label.nivellSeguretatInternet}">Nivell de seguretat intranet</label>
+									<div class="col-md-4">
+										<select id="nivellSeguretatPrivat" class="form-control">
+											<option data-th-selected="*{servei.nivellSeguretat == 1}" data-th-text="#{global.label.select.baix}" value="1">Baix</option>
+											<option data-th-selected="*{servei.nivellSeguretat == 2}" data-th-text="#{global.label.select.mig}" value="2">Mig</option>
+											<option data-th-selected="*{servei.nivellSeguretat == 3}" data-th-text="#{global.label.select.alt}" value="3">Alt</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="ipAccesExplotacio" class="col-md-3 control-label ips" data-th-text="#{servei.form.label.ipExplotacio}">IPs d'accés a explotació</label>
+									<button id="js-ipExplotacioIntranet" class="btn btn-default btn-sm ips" type="button" data-toggle="modal" href="#" data-th-text="#{servei.form.button.afegirIp}">Afegir nova IP</button>
+									<div class="col-md-4" data-th-each="serveiIps, iterableStatus : ${serveisForm.registresIpExplotacio}" data-th-if="${iterableStatus.index == 0}">
+										<input type="text" class="form-control ips" data-th-value="${serveiIps.ip}"/>
+									</div>
+									<div class="col-md-offset-3 col-md-4" data-th-each="serveiIps, iterableStatus : ${serveisForm.registresIpExplotacio}" data-th-if="${iterableStatus.index != 0}">
+										<input type="text" class="form-control ips" data-th-value="${serveiIps.ip}"/>
+									</div>
+									<div id="novaIpExplotacioIntranet"></div>
+								</div>
+								<div class="form-group">
+									<label for="ipAccesTest" class="col-md-3 control-label" data-th-text="#{servei.form.label.ipTest}">IPs d'accés a test</label>
+									<button id="js-ipTestIntranet" class="btn btn-default btn-sm ips" type="button" data-toggle="modal" href="#" data-th-text="#{servei.form.button.afegirIp}">Afegir nova IP</button>
+									<div class="col-md-4" data-th-each="serveiIps, iterableStatus : ${serveisForm.registresIpTest}" data-th-if="${iterableStatus.index == 0}">
+										<input type="text" class="form-control ips" data-th-value="${serveiIps.ip}"/>
+									</div>
+									<div class="col-md-offset-3 col-md-4" data-th-each="serveiIps, iterableStatus : ${serveisForm.registresIpTest}" data-th-if="${iterableStatus.index != 0}">
+										<input type="text" class="form-control ips" data-th-value="${serveiIps.ip}"/>
+									</div>
+									<div id="novaIpTestIntranet"></div>
+								</div>
+								<div class="form-group">
+									<label for="concurrenciaMaximaPrivat" class="col-md-3 control-label" data-th-text="#{servei.form.label.concurrencia}">Concurrència màxima</label>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="concurrenciaMaximaPrivat" placeholder="2 per defecte" data-th-field="*{servei.concurrenciaIntranet}" value="*{servei.concurrenciaIntranet}"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="cuaLimitacioPrivat" class="col-md-3 control-label" data-th-text="#{servei.form.label.cua}">Cua de limitació</label>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="cuaLimitacioPrivat" placeholder="5 per defecte" data-th-field="*{servei.cuaIntranet}" value="*{servei.cuaIntranet}"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="tempsExpiracioPrivat" class="col-md-3 control-label" data-th-text="#{servei.form.label.temps}">Temps d'expiració</label>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="tempsExpiracioPrivat" placeholder="10 per defecte" data-th-field="*{servei.tempsIntranet}" value="*{servei.tempsIntranet}"/>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-4">
+									<label for="formatSortida" class="col-md-5 control-label" data-th-text="#{servei.form.label.busPublic}">Bus Públic</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="accesInternet" class="col-md-3 control-label" data-th-text="#{servei.form.label.accesInternet}">Accés internet</label>
+								<div class="col-md-4">
+									<select id="accesInternet" class="form-control">
+										<option data-th-selected="*{servei.accesInternet == 1}" value="1" data-th-text="#{global.label.select.si}">Sí</option>
+										<option data-th-selected="*{servei.accesInternet == 2}" value="2" data-th-text="#{global.label.select.no}">No</option>
+									</select>
+								</div>
+							</div>
+							<div id="js-accesInternet" data-th-class="*{servei.accesInternet == 2} ? hide : show">
+								<div class="form-group">
+									<label for="concurrenciaMaximaPublic" class="col-md-3 control-label" data-th-text="#{servei.form.label.concurrencia}">Concurrència màxima</label>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="concurrenciaMaximaPublic" placeholder="2 per defecte" data-th-field="*{servei.concurrenciaInternet}" value="*{servei.concurrenciaInternet}"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="cuaLimitacioPublic" class="col-md-3 control-label" data-th-text="#{servei.form.label.cua}">Cua de limitació</label>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="cuaLimitacioPublic" placeholder="5 per defecte" data-th-field="*{servei.cuaInternet}" value="*{servei.cuaInternet}"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="tempsExpiracioPublic" class="col-md-3 control-label" data-th-text="#{servei.form.label.temps}">Temps d'expiració</label>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="tempsExpiracioPublic" placeholder="10 per defecte" data-th-field="*{servei.tempsInternet}" value="*{servei.tempsInternet}"/>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend data-th-text="#{servei.form.label.servei}">Servei a publicar</legend>
+							<div class="form-group">
+								<label for="urlServeiExplotacio" class="col-md-3 control-label" data-th-text="#{servei.form.label.urlExplotacio}">URL del servei a explotació</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="urlServeiExplotacio" data-th-field="*{servei.urlExplotacio}" value="*{servei.urlExplotacio}"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="urlServeiProves" class="col-md-3 control-label" data-th-text="#{servei.form.label.urlProves}">URL del servei de proves</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="urlServeiProves" data-th-field="*{servei.urlProves}" value="*{servei.urlProves}"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="dadesPersonals" class="col-md-3 control-label" data-th-text="#{servei.form.label.dadesPersonals}">Dades Personals</label>
+								<div class="col-md-4">
+									<select id="dadesPersonals" class="form-control" data-th-field="*{servei.dadesPersonals}">
+										<option data-th-selected="*{servei.dadesPersonals == 0}" value="0" data-th-text="#{global.label.select.no}">No</option>
+										<option data-th-selected="*{servei.dadesPersonals == 1}" value="1" data-th-text="#{global.label.select.baix}">Baix</option>
+										<option data-th-selected="*{servei.dadesPersonals == 2}" value="2" data-th-text="#{global.label.select.mig}">Mig</option>
+										<option data-th-selected="*{servei.dadesPersonals == 3}" value="3" data-th-text="#{global.label.select.alt}">Alt</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="descripcio" class="col-md-3 control-label" data-th-text="#{servei.form.label.descripcio}">Descripció</label>
+								<div class="col-md-6">
+									<textarea class="form-control" rows="3" data-th-field="*{servei.descripcio}" data-th-text="*{servei.urlProves}"></textarea>
+								</div>
+							</div>
+	
+							<div class="col-md-12">
+								<div class="tab-content">
+									<div class="tab-pane active" id="tabOperacions">
+										<div class="panel panel-info">
+											<div class="panel-heading">
+												<label data-th-text="#{servei.form.table.operacio.operacioTitol}">Llistat d'operacions</label> <label class="linkCrudAction pull-right" data-toggle="modal" href="#operacionsEdicio">
+													<button class="btn btn-default" type="button">
+														<span class="fa fa-plus" data-toggle="tooltip" data-placement="top" title="Afegir" data-th-text="#{global.button.afegir}">Afegir</span>
+													</button>
+												</label>
+											</div>
+											<div class="table-responsive">
+												<table class="table table-striped ">
+													<thead>
+														<tr>
+															<th class="col-md-3" data-th-text="#{servei.form.table.operacio.nom}">Nom de la operació</th>
+															<th class="col-md-8" data-th-text="#{servei.form.table.operacio.descripcio}">Descripció</th>
+															<th class="col-md-1 text-center" data-th-text="#{servei.form.table.responsable.accio}">Acció</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="agrupacio" class="col-md-3 control-label" data-th-text="#{servei.form.label.agrupacio}">Agrupació</label>
+								<div class="col-md-4">
+									<select id="agrupacio" class="form-control" data-th-field="*{servei.metamodel.idMetamodel}">
+									<option data-th-each="metamodel : *{registresMetamodel}" 
+       										data-th-value="${metamodel.idMetamodel}" 
+       										data-th-text="${metamodel.nom}"
+       										data-th-selected="*{servei.metamodel.idMetamodel}">NomMetamodel</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="formatSortida" class="col-md-3 control-label" data-th-text="#{servei.form.label.format}">Format de la sortida</label>
+								<div class="col-md-4">
+									<select id="formatSortida" class="form-control" data-th-field="*{servei.tecnologia.idTecnologia}">
+									<option data-th-each="tecno : *{registresTecnologia}" 
+	          										data-th-value="${tecno.idTecnologia}" 
+	          										data-th-text="${tecno.nom}"
+	          										data-th-selected="${tecno.idTecnologia == serveisForm.servei.tecnologia.idTecnologia}">NomTecnologia</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="formatSortida" class="col-md-3 control-label" data-th-text="#{servei.form.label.tags}"> Llista de tags</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="llistaEtiquetes" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="manualPDF" class="col-md-3 control-label" data-th-text="#{servei.form.label.adjuntarManual}">Adjuntar manual en PDF</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="manualPDF" />
+								</div>
+								<div class="col-md-3">
+									<button class="btn btn-default btn-sm" type="button">
+										<span class="fa fa-file"></span>
+									</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="validacio" class="col-md-3 control-label" data-th-text="#{servei.form.label.validacio}">Requereix validació?</label>
+								<div class="col-md-4">
+									<select id="validacio" class="form-control" data-th-field="*{servei.validacio}">
+										<option data-th-selected="*{servei.validacio == 1}" data-th-text="#{global.label.select.si}" value="1">Sí</option>
+										<option data-th-selected="*{servei.validacio == 2}" data-th-text="#{global.label.select.no}" value="2">No</option>
+									</select>
+								</div>
+							</div>
+						</fieldset>
+						<div class="form-group">
+							<label for="tipus" class="col-md-3 control-label" data-th-text="#{serveis.form.label.estat}">Estat</label>
+							<div class="col-md-4">
+								<select id="estat" class="form-control" data-th-field="*{servei.estat.idEstat}">
+									<option data-th-selected="*{servei.validacio == 1}" data-th-text="#{global.label.select.si}" value="1">Sí</option>
+									<option data-th-selected="*{servei.validacio == 2}" data-th-text="#{global.label.select.no}" value="2">No</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="pull-right">
+								<button class="btn btn-default" type="button" data-th-text="#{global.button.tornar}">Tornar</button>
+								<button class="btn btn-default" type="button" data-th-text="#{global.button.desarCanvis}">Desar Canvis</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="panel-body">
+					<form class="form-horizontal" id="comentarisForm" data-th-action="@{/serveis/guardarComentari/}" data-th-object="${serveisForm}" data-th-method="put">
+						<fieldset>
+							<legend data-th-text="#{servei.edicio.comentaris.titol}">Comentaris</legend>
+							<div class="form-group">
+								<div class="col-md-8" data-th-text="#{servei.edicio.comentaris.pregunta}">Vols deixar un comentari?</div>
+								<div class="col-md-11">
+									<textarea class="form-control" rows="6" data-th-field="*{comentari.comentari}"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="manualPDF" class="col-md-3 control-label" data-th-text="#{servei.form.label.adjuntarManual}">Adjuntar manual en PDF</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="manualPDF" placeholder="" />
+								</div>
+								<div class="col-md-3">
+									<button class="btn btn-default btn-sm" type="button" data-toggle="modal">
+										<span class="fa fa-file"></span>
+									</button>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="pull-right">
+									<button id="desarComentari" class="btn btn-default" type="button" data-th-text="#{global.button.desarCanvis}">Desar Canvis</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+					<div class="container missatges">
+						<div class="row">
+							<div class="col-md-11">
+								<div class="panel panel-missatges" data-th-each="comentari : ${serveisForm.registresServeiComentaris}">
+									<div class="panel-heading" data-idcomentari="*{comentari.idComentari}" data-th-text="*{comentari.responsable.nomCognoms} + ' - ' + *{comentari.dataComentari}">Govern SOA - 27/05/2014 - 18:40
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-12" data-th-text="*{comentari.comentari}">Canvis realitzats correctament</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</body>
+	<script data-layout-fragment="customJavascript" src="../static/js/serveiEdicio.js" data-th-src="@{/js/serveiEdicio.js}"></script>
+</html>

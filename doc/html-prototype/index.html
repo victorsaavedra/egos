@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="favicon.png">
+	
+	<title>Eina de Govern SOA (eGOS)</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="assets/css/custom.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	  <script src="assets/js/html5shiv.js"></script>
+	  <script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<!-- Inici header navbar -->	
+	<div class="container">		
+		<div class="navbar navbar-default navbar-header-logo navbar-header-color">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand img-logo" href="index.html" >
+					<img class="img-responsive" src="assets/img/logo.png"  alt="logo">
+				</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right menuPreferences">
+					<li class="dropdown"><a href="#" class="dropdown-toggle nombre-usuario" data-toggle="dropdown">&nbsp;Víctor Saavedra (Govern eGOS)<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="preferenciesEdicio.html"><span class="fa fa-user"></span> Preferències</a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#">Sortir</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Fi header navbar -->
+	
+	<!-- Inici menu navbar -->		
+	<div class="container">		
+		<div class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><strong>eGOS</strong></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="index.html">Catàleg</a>
+					</li>
+					
+					<li>
+						<a href="serveisCerca.html">Els meus serveis</a>
+					</li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administració<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Usuaris</a></li>
+							<li><a href="#">Llistat de mails</a></li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<!-- Fi menu navbar -->
+		
+		<!-- Inici Breadcrumb -->
+		<ol class="breadcrumb">
+			<li><a href="index.html"><strong>eGOS</strong></a></li>
+			<li><a href="index.html"><strong>Catàleg</strong></a></li>
+		</ol>
+		<!-- Fi Breadcrumb -->
+		
+	</div>
+		
+	
+		
+	<div class="container">		
+		<div class="jumbotron">
+			<div class="container">
+				<div class="row">
+					<div class="js-jumbotron col-md-4 text-center">
+						<span id="servei-circle" class="fa-stack fa-3x">
+							<a id="hola" href="#"><i id="fa-circle-servei" class="fa fa-circle fa-stack-2x js-circle circle-active"></i></a>
+							<i id="fa-icon-circle-servei" class="fa fa-globe fa-stack-1x js-icon icon-circle-active"></i>
+						</span>
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						<span id="subscripcio-circle" class="fa-stack fa-3x">
+							<a href="#"><i id="fa-circle-subscripcio" class="fa fa-circle fa-stack-2x js-circle circle"></i></a>
+							<i id="fa-icon-circle-subscripcio" class="fa fa-envelope-o fa-stack-1x js-icon icon-circle"></i>
+						</span>
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						<span id="identitat-circle" class="fa-stack fa-3x">
+							<a href="#"><i id="fa-circle-subscripcio" class="fa fa-circle fa-stack-2x js-circle circle"></i></a>
+							<i id="fa-icon-circle-subscripcio" class="fa fa-envelope-o fa-stack-1x js-icon icon-circle"></i>
+						</span>
+					</div>
+				</div>
+				<div class="row metamodel">
+					<div class="js-jumbotron col-md-4 text-center">
+						Alumne
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						Identitat
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						Alumne
+					</div>
+				</div>
+				<div class="row">
+					<div class="js-jumbotron col-md-4 text-center">
+						<span id="alumne-circle" class="fa-stack fa-3x">
+							<a href="#"><i id="fa-circle-servei" class="fa fa-circle fa-stack-2x js-circle circle"></i></a>
+							<i id="fa-icon-circle-servei" class="fa fa-globe fa-stack-1x js-icon icon-circle"></i>
+						</span>
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						<span id="drac-circle" class="fa-stack fa-3x">
+							<a href="#"><i id="fa-circle-subscripcio" class="fa fa-circle fa-stack-2x js-circle circle"></i></a>
+							<i id="fa-icon-circle-subscripcio" class="fa fa-envelope-o fa-stack-1x js-icon icon-circle"></i>
+						</span>
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						<span id="prisma-circle" class="fa-stack fa-3x">
+							<a href="#"><i id="fa-circle-subscripcio" class="fa fa-circle fa-stack-2x js-circle circle"></i></a>
+							<i id="fa-icon-circle-subscripcio" class="fa fa-envelope-o fa-stack-1x js-icon icon-circle"></i>
+						</span>
+					</div>
+				</div>
+				<div class="row metamodel">
+					<div class="js-jumbotron col-md-4 text-center">
+						Alumne
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						Identitat
+					</div>
+					<div class="js-jumbotron col-md-4 text-center">
+						Alumne
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-9">
+				<div class="row">
+					<div class="col-md-12">
+						<form class="form-horizontal">
+							 <div class="form-group">
+							   <label for="nom" class="col-md-1 control-label">Nom</label>
+								<div class="col-md-8 col-md-offset-1">
+									<input type="text" class="form-control" id="nom" placeholder="">
+								</div>
+								<div class="col-md-2">
+									<button id="cercar" type="button" class="btn btn-default pull-right">Cercar</button>
+								</div>
+							 </div>
+							 <div class="form-group">
+								<div class="col-md-4 checkbox-inline">
+									<div class="col-md-12 checkbox-inline">
+										<label class="checkbox-inline">
+											<input type="radio" name="filtrat" id="servei" value="1" checked> Servei
+										</label>
+										<label class="checkbox-inline">
+											<input type="radio" name="filtrat" id="subscripcio" value="2"> Subscripció
+										</label>
+									</div>
+								</div>					
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<!-- Inici catàleg -->
+				<div class="panel panel-info">
+
+					<!-- Inici Item catàleg --> 
+					<div class="panel-group" id="serveis">
+						<div class="panel panel-default">
+							
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#serveis" href="#collapseOne">
+										<b>Drac</b>
+									</a>
+								</h4>
+							</div>
+							<!--acordió 1-->
+							<div id="collapseOne" class="panel-collapse collapse in">
+								<!--Entrada del catàleg-->
+								<div class="panel panel-catalogo">
+									<div class="panel-heading">
+										<h3 class="panel-title">GrupRecercav1</h3>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													<ul class="llista-enllasos verticalAlignMiddleExcelExportar">
+														<li><a href="#">Contracte</a></li>
+														<li><a href="#">WSDL Integració</a></li>
+														<li><a href="#">WSDL explotació</a></li>
+														<li><a href="#">Manual d'ús</a></li>
+													</ul>
+												</div>
+												<div class="pull-right">
+													<a href="serveiEdicio.html"><button class="js-altaBlocRecurs btn btn-default btn-sm" type="button">
+														<span class="fa fa-pencil"></span>
+													</button></a>
+													<a href="novaSubscripcio.html"><button class="btn btn-default btn-sm" type="button">
+														Subscribirse al servei
+													</button></a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p>
+													Retorna la informació d'un grup de recerca, la llista de tots els grups de recerca i tots els PDIs d'un grup de recerca.
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												Subscripcions:
+											</div>
+											<div class="col-md-10 pull-left">
+												<ul>
+													<li><a href="#">BiDrac</a></li>
+													<li><a href="#">SAPECofin</a></li>
+													<li><a href="#">Web CREB</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												Llista de tags:<a href="#"> alumne</a>, <a href="#">notícies</a>, <a href="#">identitat</a>...
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-right">
+													Contacte: <i class="fa fa-envelope-o"></i><a href="#">   lluis@mailvis@upc.edu</a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													Publicat
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Entrada del catàleg-->
+								<div class="panel panel-catalogo">
+									<div class="panel-heading">
+										<h3 class="panel-title">GrupRecercav1</h3>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													<ul class="llista-enllasos verticalAlignMiddleExcelExportar">
+														<li><a href="#">Contracte</a></li>
+														<li><a href="#">WSDL Integració</a></li>
+														<li><a href="#">WSDL explotació</a></li>
+														<li><a href="#">Manual d'ús</a></li>
+													</ul>
+												</div>
+												<div class="pull-right">
+													<a href="serveiEdicio.html"><button class="js-altaBlocRecurs btn btn-default btn-sm" type="button">
+														<span class="fa fa-pencil"></span>
+													</button></a>
+													<a href="novaSubscripcio.html"><button class="btn btn-default btn-sm" type="button">
+														Subscribirse al servei
+													</button></a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p>
+													Retorna la informació d'un grup de recerca, la llista de tots els grups de recerca i tots els PDIs d'un grup de recerca.
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												Subscripcions:
+											</div>
+											<div class="col-md-10 pull-left">
+												<ul>
+													<li><a href="#">BiDrac</a></li>
+													<li><a href="#">SAPECofin</a></li>
+													<li><a href="#">Web CREB</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-right">
+													Contacte: <i class="fa fa-envelope-o"></i><a href="#">   lluis@mailvis@upc.edu</a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													Publicat
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-catalogo">
+									<div class="panel-heading">
+										<h3 class="panel-title">GrupRecercav1</h3>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													<ul class="llista-enllasos verticalAlignMiddleExcelExportar">
+														<li><a href="#">Contracte</a></li>
+														<li><a href="#">WSDL Integració</a></li>
+														<li><a href="#">WSDL explotació</a></li>
+														<li><a href="#">Manual d'ús</a></li>
+													</ul>
+												</div>
+												<div class="pull-right">
+													<a href="serveiEdicio.html"><button class="js-altaBlocRecurs btn btn-default btn-sm" type="button">
+														<span class="fa fa-pencil"></span>
+													</button></a>
+													<a href="novaSubscripcio.html"><button class="btn btn-default btn-sm" type="button">
+														Subscribirse al servei
+													</button></a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p>
+													Retorna la informació d'un grup de recerca, la llista de tots els grups de recerca i tots els PDIs d'un grup de recerca.
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												Subscripcions:
+											</div>
+											<div class="col-md-10 pull-left">
+												<ul>
+													<li><a href="#">BiDrac</a></li>
+													<li><a href="#">SAPECofin</a></li>
+													<li><a href="#">Web CREB</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-right">
+													Contacte: <i class="fa fa-envelope-o"></i><a href="#">   lluis@mailvis@upc.edu</a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													Publicat
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Fi acordió 1-->
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="accordion-toggle" data-toggle="collapse" data-parent="#serveis" href="#collapseTwo">
+										Prisma
+									</a>
+								</h4>
+							</div>
+							<!--acordió 2-->
+							<div id="collapseTwo" class="panel-collapse collapse in">
+								<!--Entrada del catàleg-->
+								<div class="panel panel-catalogo">
+									<div class="panel-heading">
+										<h3 class="panel-title">GrupRecercav1</h3>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													<ul class="llista-enllasos verticalAlignMiddleExcelExportar">
+														<li><a href="#">Contracte</a></li>
+														<li><a href="#">WSDL Integració</a></li>
+														<li><a href="#">WSDL explotació</a></li>
+														<li><a href="#">Manual d'ús</a></li>
+													</ul>
+												</div>
+												<div class="pull-right">
+													<a href="subscripcioEdicio.html"><button class="btn btn-default btn-sm" type="button">
+														Editar la subscripció
+													</button></a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p>
+													Retorna la informació d'un grup de recerca, la llista de tots els grups de recerca i tots els PDIs d'un grup de recerca.
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												Subscripcions:
+											</div>
+											<div class="col-md-10 pull-left">
+												<ul>
+													<li><a href="#">BiDrac</a></li>
+													<li><a href="#">SAPECofin</a></li>
+													<li><a href="#">Web CREB</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-right">
+													Contacte: <i class="fa fa-envelope-o"></i><a href="#">   lluis@mailvis@upc.edu</a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													Publicat
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Entrada del catàleg-->
+								<div class="panel panel-catalogo">
+									<div class="panel-heading">
+										<h3 class="panel-title">GrupRecercav1</h3>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													<ul class="llista-enllasos verticalAlignMiddleExcelExportar">
+														<li><a href="#">Contracte</a></li>
+														<li><a href="#">WSDL Integració</a></li>
+														<li><a href="#">WSDL explotació</a></li>
+														<li><a href="#">Manual d'ús</a></li>
+													</ul>
+												</div>
+												<div class="pull-right">
+													<a href="subscripcioEdicio.html"><button class="btn btn-default btn-sm" type="button">
+														Editar la subscripció
+													</button></a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p>
+													Retorna la informació d'un grup de recerca, la llista de tots els grups de recerca i tots els PDIs d'un grup de recerca.
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												Subscripcions:
+											</div>
+											<div class="col-md-10 pull-left">
+												<ul>
+													<li><a href="#">BiDrac</a></li>
+													<li><a href="#">SAPECofin</a></li>
+													<li><a href="#">Web CREB</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-right">
+													Contacte: <i class="fa fa-envelope-o"></i><a href="#">   lluis@mailvis@upc.edu</a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													Publicat
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-catalogo">
+									<div class="panel-heading">
+										<h3 class="panel-title">GrupRecercav1</h3>
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													<ul class="llista-enllasos verticalAlignMiddleExcelExportar">
+														<li><a href="#">Contracte</a></li>
+														<li><a href="#">WSDL Integració</a></li>
+														<li><a href="#">WSDL explotació</a></li>
+														<li><a href="#">Manual d'ús</a></li>
+													</ul>
+												</div>
+												<div class="pull-right">
+													<a href="subscripcioEdicio.html"><button class="btn btn-default btn-sm" type="button">
+														Editar la subscripció
+													</button></a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p>
+													Retorna la informació d'un grup de recerca, la llista de tots els grups de recerca i tots els PDIs d'un grup de recerca.
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												Subscripcions:
+											</div>
+											<div class="col-md-10 pull-left">
+												<ul>
+													<li><a href="#">BiDrac</a></li>
+													<li><a href="#">SAPECofin</a></li>
+													<li><a href="#">Web CREB</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-right">
+													Contacte: <i class="fa fa-envelope-o"></i><a href="#">   lluis@mailvis@upc.edu</a>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="pull-left">
+													Publicat
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Fi acordió 2-->
+						</div>
+					</div>
+				<!-- Fi Catàleg -->
+				</div>
+			</div>
+			<div class="col-md-3">
+				<a href="nouServei.html"><button id="nou-servei" type="button" class="btn btn-success btn-width-complet">Oferir nou servei</button></a>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Tags</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Alumnes (34)</li>
+							<li>Notícies (26)</li>
+							<li>Identitat (13)</li>
+							<li>Servei (9)</li>
+							<li>Drac (9)</li>	
+							<li>Prisma (8)</li>							
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Últims serveis afegits</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Drac - GrupRecercav2</li>
+							<li>Drac - curriculumsv1</li>
+							<li>Drac - ocupaciov1</li>
+							<li>Drac - CercadorMapsv1 Versio1</li>
+							<li>Drac - Gestió Tiquets v1</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Formats de sortida</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>JSON</li>
+							<li>XML</li>
+							<li>HTML</li>
+							<li>RSS</li>
+							<li>SHP</li>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Metamodel</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>Drac - GrupRecercav2</li>
+							<li>Drac - curriculumsv1</li>
+							<li>Drac - ocupaciov1</li>
+							<li>Drac - CercadorMapsv1 Versio1</li>
+							<li>Drac - Gestió Tiquets v1</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<i class="fa fa-sign-in fa-2x"></i>
+				</div>
+				<label for="exportar-a-excel" class="col-md-10 verticalAlignMiddleExcelExportar">Exportar a Excel</label>
+			</div>
+		</div>
+
+	</div> <!-- /container -->
+				
+
+	<!-- ====================================  JavaScript   ==================================== -->
+	<script src="assets/js/jquery-1.10.2.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/index.js"></script>
+	<script src="assets/js/tooltip.js"></script>
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html data-layout-decorator="layout">
+
+
+	<body>	
+		<!-- Inici Catàleg -->
+		<div class="container" data-layout-fragment="content">
+		
+			<div class="panel-body">
+				<form id="formCerca" data-th-action="@{/serveis}" data-th-object="${serveisForm}" data-th-method="post" class="form-horizontal">
+					<div class="form-group">
+					   <label for="sistemaInformacio" class="col-md-3 control-label" data-th-text="#{serveis.form.label.sistemaInformacio}">Sistema d'Informació</label>
+					   	<div class="col-md-4">
+							<input type="text" class="form-control" id="sistemaInformacioNomCerca" data-th-field="*{sistemaInformacioNomCerca}" value="*{sistemaInformacioNomCerca}"/>
+						</div>
+					 </div>
+					 
+					<div class="form-group">
+					   <label for="nom" class="col-md-3 control-label" data-th-text="#{serveis.form.label.nom}">Nom</label>
+					   	<div class="col-md-4">
+							<input type="text" class="form-control" id="nomCerca" data-th-field="*{nomCerca}" value="*{nomCerca}"/>
+						</div>
+					 </div>
+					 
+					<div class="form-group">
+						<label for="tipus" class="col-md-3 control-label" data-th-text="#{serveis.form.label.tipus}">Tipus</label>
+						<div class="col-md-4">
+							<select id="tipusCerca" class="form-control">
+								<option data-th-text="#{serveis.form.label.tipus.servei}">Servei</option>
+								<option data-th-text="#{serveis.form.label.tipus.subscripcio}">Subscripció</option>
+							</select>						
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="estat" class="col-md-3 control-label" data-th-text="#{serveis.form.label.estat}">Estat</label>
+						<div class="col-md-4">
+							<select id="estatCerca" name="estatCerca" class="form-control">
+								<option data-th-text="#{global.label.select.tots}" value="">Tots</option>
+								<option data-th-each="estat : ${serveisForm.registresMestresEstat}" data-th-text="${estat.nom}" data-th-value="${estat.idEstat}" data-th-selected="${estat.idEstat}==${serveisForm.estatCerca}"></option>
+							</select>						
+						</div>
+					</div>
+					
+					<!-- <div class="form-group">
+						<label for="privat" class="col-md-3 control-label" data-th-text="#{serveis.form.label.estat.comentaris}">Comentaris pendents</label>
+						<div class="col-md-4">
+							<select id="idComentarisPendentsCerca" name="idComentarisPendentsCerca" class="form-control">
+								<option data-th-text="#{global.label.select.tots}" data-th-value="2">Tots</option>
+								<option data-th-text="#{global.label.select.si}" data-th-selected="${serveisForm.idComentarisPendentsCerca} == 1" data-th-value="1">Sí</option>
+								<option data-th-text="#{global.label.select.no}" data-th-selected="${serveisForm.idComentarisPendentsCerca} == 0" data-th-value="0">No</option>
+							</select>						
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label for="privat" class="col-md-3 control-label">Privat</label>
+						<div class="col-md-4">
+							<select id="privat" class="form-control">
+								<option>Tots</option>
+								<option>Sí</option>
+								<option>No</option>
+							</select>						
+						</div>
+					</div>-->
+					 
+					<div class="form-group">
+						<div class="col-md-offset-3 col-md-9">
+							<button id="cerca" type="button" class="btn btn-default" data-th-text="#{global.button.cercar}">Cercar</button>
+						</div>
+					</div>
+					 
+				</form>
+				<form id="formNou" data-th-action="@{/serveis/form}" data-th-object="${serveisForm}" data-th-method="post">
+					<div class="col-md-offset-3 col-md-9">
+						<button id="nouServei" type="button" data-th-href="@{/serveis/form}" class="btn btn-default pull-right" data-th-text="#{serveis.button.nouServei}">Oferir nou servei</button>
+					</div>
+				</form>
+				<div class="col-md-12">
+					<!-- Inici catàleg -->
+					<div class="panel panel-info">
+						<!-- Inici Item catàleg -->
+						<div class="panel-group" id="serveis">
+							<div class="panel panel-default">
+								<!-- INICIO BUCLE SISTEMA INFORMACIO -->
+								<div data-th-each="sistemaInformacio : ${serveisForm.registresServeisCataleg}">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#serveis" data-th-href="'#Collapse' + ${sistemaInformacio.idSistemaInformacio}"> 
+												<b data-th-text="${sistemaInformacio.nom}"></b>
+											</a>
+										</h4>
+									</div>
+									<!--acordió 1-->
+									<div data-th-id="'Collapse' + ${sistemaInformacio.idSistemaInformacio}" class="panel-collapse collapse in">
+										<!--Entrada del catàleg-->
+										<!-- INICIO BUCLE SISTEMAINFORMACIO.SERVEI -->
+										<div class="panel panel-catalogo" data-th-each="servei : ${sistemaInformacio.serveis}">
+											<div class="panel-heading">
+												<h3 class="panel-title" data-th-text="${servei.nom}">Nom del servei</h3>
+												<span style="margin-top:-15px;" class="pull-right" data-th-each="alertaComentari : ${serveisForm.registresAlertesComentaris}" data-th-if="(${servei.idServei} == ${alertaComentari[0]} and ${alertaComentari[1]} &gt; 0)">
+													<i class="missatgesPendents fa fa-exclamation-triangle fa-2x" data-th-text="${alertaComentari[1]}">Número</i>
+												</span>
+											</div>
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="pull-left">
+															<ul
+																class="llista-enllasos verticalAlignMiddleExcelExportar">
+																<li><a data-th-text="#{serveis.cataleg.label.contracte}" href="#">Contracte</a></li>
+																<li><a data-th-text="#{serveis.cataleg.label.integracio}" href="#">WSDL Integració</a></li>
+																<li><a data-th-text="#{serveis.cataleg.label.explotacio}" href="#">WSDL explotació</a></li>
+																<li><a data-th-text="#{serveis.cataleg.label.manual}" href="#">Manual d'ús</a></li>
+															</ul>
+														</div>
+														<div class="pull-right">
+														
+														
+														
+															<button data-th-href="@{/serveis/{id}(id=${servei.idServei})}" class="js-altaBlocRecurs btn btn-default btn-sm" type="button">
+																<span class="fa fa-pencil"></span>
+															</button>
+															<a href="novaSubscripcio.html">
+																<button data-th-text="#{serveis.button.cataleg.button.subscribirse}" class="btn btn-default btn-sm" type="button">
+																		Subscribirse al servei
+																</button>
+															</a>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<p data-th-text="${servei.descripcio}"> Descripció del servei</p>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-2" data-th-text="#{serveis.cataleg.label.subscripcions}">Subscripcions:</div>
+													<div class="col-md-10 pull-left">
+														<ul style="display:inline;margin-left:-80px;">
+															<li style="margin-left:5px;" data-th-each="operacioSubscripcio : ${serveisForm.registresServeisSubscripcions}" data-th-if="${operacioSubscripcio[0] == servei.idServei}" >
+																<a data-th-text="${operacioSubscripcio[1].sistemaInformacio.nom}" href="#">
+																	Subscripcio
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="row" style="margin-top:5px !important;">
+													<div class="col-md-12">
+														<div class="pull-right">
+															<span data-th-text="#{serveis.cataleg.label.contacte}">Contacte:</span>
+															<i class="fa fa-envelope-o"></i>
+															<a href="#" data-th-each="responsables : ${servei.serveiResponsables}">
+																<span data-th-if="${responsables.responsable.rol.idRol} == 2" data-th-text="${responsables.responsable.nomCognoms}">
+																	Mail responsable
+																</span>
+															</a>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="pull-left" data-th-text="${servei.estat.nom}">Estat</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+									<!-- FINAL SISTEMAINFORMACIO.SERVEI -->
+									</div>
+								</div>
+								<!--Fi acordió-->
+								<!-- FINAL BUCLE SISTEMA INFORMACIO -->
+							</div>
+						</div>
+						<!-- Fi Catàleg -->
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- Fi Body -->	
+					
+	</body>
+	<script data-layout-fragment="customJavascript" src="../static/js/serveisCerca.js" data-th-src="@{/js/serveisCerca.js}"></script>
+
+</html>

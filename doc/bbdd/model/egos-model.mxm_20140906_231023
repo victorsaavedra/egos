@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?><Model version="5.0">
+    <Configuration>
+        <Property name="dialect" value="PostgresDialect"/>
+        <Property name="ALIAS" value="egos"/>
+        <Property name="DRIVER" value="org.postgresql.Driver"/>
+        <Property name="PASSWORD" value="postgres"/>
+        <Property name="PROMPTFORPASSWORD" value="true"/>
+        <Property name="URL" value="jdbc:postgresql://localhost:5453/egos"/>
+        <Property name="USER" value="postgres"/>
+    </Configuration>
+    <CustomTypes/>
+    <Domains/>
+    <Tables>
+        <Table id="f8db1de4-8bdb-4f12-8eec-c835d00795fb" name="servei" schema="">
+            <Property name="LOCATION" value="365:209"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SERVEI')" extra="" fraction="null" id="5ff154ef-017e-4129-a7fd-e678063fa079" name="id_servei" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="c9125f73-c801-4ce5-ad0f-41247b1dab56" name="id_sistema_informacio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="1a1e1ad0-e013-4004-bf0c-97ce29440b5f" name="dades_personals" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="4959797d-f114-40f7-8123-a49c8329c107" name="nivell_seguretat" nullable="true" scale="10" size=""/>
+            <Attribute datatype="text" defaultvalue="" extra="" fraction="null" id="7b2065b3-b6f2-45e1-92a3-531b42ea30d0" name="descripcio" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="0a294cfc-3df8-412d-a66c-1e9f53fdfcf7" name="cua_internet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="b88c7f81-a13f-4d2b-88aa-fc87d55c56c6" name="temps_intranet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="4df2059d-cce2-4dd2-849a-979b5db6ae2d" name="concurrencia_intranet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="21a8d552-5e28-4b7f-be7d-d47222b0e609" name="url_explotacio" nullable="true" scale="10" size="100"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="63cc6439-e13e-40f0-be6c-2da2dcae03d4" name="acces_intranet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="b8fbdbc4-9a6b-4b8b-bfb8-75cfe79bf6ac" name="acces_internet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="f1a058a6-29bc-43e4-aa84-1cb6acf6f3b0" name="cua_intranet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="c8bb8d38-8977-49da-88e6-93551cb3f4e3" name="grup_gauss" nullable="true" scale="10" size="100"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="697758c9-cc1b-4b07-a795-21c91be4ef66" name="url_proves" nullable="true" scale="10" size="100"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="f2b7973a-b03f-4aab-9e28-f7f88a76eaca" name="concurrencia_internet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="d531aa67-3548-49e9-8afb-c5e959753275" name="temps_internet" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="1d8e564a-033d-4e99-8e2c-90b1d9c8e97c" name="validacio" nullable="true" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="468edee3-db2a-454b-adcc-9cce649a3b91" name="nom" nullable="true" scale="10" size="50"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="fe9f46c6-52dc-42b7-8e51-25dd04172b13" name="id_estat" nullable="false" scale="10" size=""/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="6853ae3b-d0ff-4815-9f97-861779fd7023" name="data_alta" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="d59ea307-20d8-46c6-92d2-810f08728e9d" name="id_tecnologia" nullable="false" scale="10" size=""/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="b1794799-f39a-4ab0-aa7b-24084c9b6f90" name="data_baixa" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="479b2b6b-ca86-43fb-8798-3429967d157e" name="id_metamodel" nullable="false" scale="10" size=""/>
+            <Index id="61367fc8-1e6e-4ac0-a262-82437b7c05bb" indextype="PRIMARYKEY" name="PK_SERVEI">
+                <Indexattribute attributerefid="5ff154ef-017e-4129-a7fd-e678063fa079" id="1038bdee-cf54-405f-8750-1cab836f1eab"/>
+            </Index>
+        </Table>
+        <Table id="55ba6e60-96c9-4938-a852-d9f9bb3ca059" name="sistema_informacio" schema="">
+            <Property name="LOCATION" value="129:0"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SISTEMA_INFORMACIO')" extra="" fraction="null" id="bdc40261-a50e-4cc3-8f6b-1d432693bc31" name="id_sistema_informacio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="d0e88e3f-cec8-4e92-8a58-ae56b9464983" name="nom" nullable="false" scale="10" size="150"/>
+            <Index id="0b561241-7451-4dea-9eb6-18a9d977a7f0" indextype="PRIMARYKEY" name="PK_SISTEMA_INFORMACIO">
+                <Indexattribute attributerefid="bdc40261-a50e-4cc3-8f6b-1d432693bc31" id="cb778796-4ff5-4db2-bf72-2b22a9acfc8d"/>
+            </Index>
+        </Table>
+        <Table id="8d4cbd1e-ae0c-4ae7-84ca-13c97372ef1b" name="subscripcio" schema="">
+            <Property name="LOCATION" value="779:59"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SUBSCRIPCIO')" extra="" fraction="null" id="d2388c22-cc3d-4302-9c22-8f6dd4131cf0" name="id_subscripcio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="15cffdd5-406e-4456-94aa-532a9bfed9d2" name="id_sistema_informacio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="70c8d9de-1393-4bae-9361-73681fade868" name="nom" nullable="true" scale="10" size="50"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="edc40f28-d6cd-4345-8e63-0dbd47d095dd" name="url_test" nullable="true" scale="10" size="100"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="e0f5d273-00cc-49c9-a923-9ee8475a4767" name="url_explotacio" nullable="true" scale="10" size="100"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="c6f84feb-cf47-4253-a141-f3550e5be6ff" name="estimacio_us" nullable="true" scale="10" size="20"/>
+            <Attribute datatype="text" defaultvalue="" extra="" fraction="null" id="126f94eb-f6f6-424b-a1a1-fa9761fab16f" name="descripcio" nullable="true" scale="10" size=""/>
+            <Attribute datatype="text" defaultvalue="" extra="" fraction="null" id="c0110662-e174-4df0-bd6e-7b3a214642dc" name="comentari" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="378f6e80-d856-40a6-a5a3-d6f21c97e54c" name="horari" nullable="true" scale="10" size=""/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="67b63c5c-4ff5-4510-8b59-a072f38bf6cf" name="data_alta" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="7b8f98f0-6240-45c8-9430-b3ad68d9233b" name="id_estat" nullable="true" scale="10" size=""/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="a8dd1303-5dbb-468e-b1f1-aed63f6bec8d" name="data_baixa" nullable="true" scale="10" size=""/>
+            <Index id="d40fc6d0-af80-4056-a4e7-3342ccee6d9a" indextype="PRIMARYKEY" name="PK_SUBSCRIPCIO">
+                <Indexattribute attributerefid="d2388c22-cc3d-4302-9c22-8f6dd4131cf0" id="b9e902c1-62b9-48ac-9c79-ca08fd0f2200"/>
+            </Index>
+        </Table>
+        <Table id="fd833d7f-b602-49d0-abe1-029f52ae5cf7" name="subscripcio_operacio" schema="">
+            <Property name="LOCATION" value="1622:0"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SUBSCRIPCIO_OPERACIO')" extra="" fraction="null" id="f1c2bbec-4362-420c-99dd-2816c8a0120e" name="id_subscripcio_operacio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="a47d73f6-d6f5-4198-b54b-9d8ba0b22ac1" name="id_subscripcio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="ee59c1c5-2db0-47f1-901c-72528d7f0711" name="id_operacio" nullable="false" scale="10" size=""/>
+            <Index id="c1911dd2-e13f-4042-a651-b5f14ed573d0" indextype="PRIMARYKEY" name="PK_SUBSCRIPCIO_OPERACIO">
+                <Indexattribute attributerefid="f1c2bbec-4362-420c-99dd-2816c8a0120e" id="81960fbc-8178-4e39-9a15-36f4f62caadc"/>
+            </Index>
+        </Table>
+        <Table id="c32f4dc6-6dc0-4406-9c58-322757e5bb5f" name="operacio" schema="">
+            <Property name="LOCATION" value="1390:342"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_OPERACIO')" extra="" fraction="null" id="106707fc-f886-40ff-8e47-bc8382b474a2" name="id_operacio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="f9c5b9c4-e99a-4d05-8a04-1e6a43c7027e" name="id_servei" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="fa4f511a-0d46-49e2-accb-1996ab53a48c" name="nom" nullable="false" scale="10" size="50"/>
+            <Attribute datatype="text" defaultvalue="" extra="" fraction="null" id="11b082c9-5bd6-403d-82c2-3f097e99592b" name="descripcio" nullable="false" scale="10" size=""/>
+            <Index id="af2c01ab-f797-4837-a531-ce8147f0605c" indextype="PRIMARYKEY" name="PK_OPERACIO">
+                <Indexattribute attributerefid="106707fc-f886-40ff-8e47-bc8382b474a2" id="ca4a699e-bedb-45d7-8017-b96a10165efc"/>
+            </Index>
+        </Table>
+        <Table id="d810fce6-5f9f-4c6b-ade7-ff2400a0b466" name="tecnologia" schema="">
+            <Property name="LOCATION" value="0:447"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_TECNOLOGIA')" extra="" fraction="null" id="ac372510-3a81-43f7-b51c-ca5b209702e4" name="id_tecnologia" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="b48fad50-4aae-47a4-affd-3514f7093729" name="nom" nullable="true" scale="10" size="50"/>
+            <Index id="ca657dba-e85e-494a-a7af-f4fcc334023a" indextype="PRIMARYKEY" name="PK_TECNOLOGIA">
+                <Indexattribute attributerefid="ac372510-3a81-43f7-b51c-ca5b209702e4" id="7d707916-5561-4a5a-852c-626a41be135f"/>
+            </Index>
+        </Table>
+        <Table id="b6d41077-7614-4e42-b99b-dbb8199ae0a6" name="metamodel" schema="">
+            <Property name="LOCATION" value="43:815"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_METAMODEL')" extra="" fraction="null" id="b0f3bc32-9004-4316-904b-263449d13c74" name="id_metamodel" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="902636c2-edcd-4be8-b5c4-c1fad6bd93aa" name="nom" nullable="true" scale="10" size="50"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="defc1fdc-dc7d-4c90-9e54-e2dc6f72b1c9" name="jumbo" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="7b8641ac-7c07-46b9-b847-3b92cff0a0a7" name="ordre" nullable="false" scale="10" size=""/>
+            <Index id="a4e28b4c-d5bb-4d4a-9725-d3a259b1ef98" indextype="PRIMARYKEY" name="PK_METAMODEL">
+                <Indexattribute attributerefid="b0f3bc32-9004-4316-904b-263449d13c74" id="b74b3dc2-6afb-4d3c-9c95-712853e5b9cf"/>
+            </Index>
+        </Table>
+        <Table id="c927043a-1d94-43b5-8e3c-25f987f1e70e" name="comentari" schema="">
+            <Property name="LOCATION" value="1093:1077"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_COMENTARI')" extra="" fraction="null" id="1a94a547-949a-4436-8914-3ff12925b1ef" name="id_comentari" nullable="false" scale="10" size=""/>
+            <Attribute datatype="date" defaultvalue="" extra="" fraction="null" id="f0aa8ec4-11e7-4176-b5b8-0fc2b3e71465" name="data_comentari" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="f21fe55a-69a5-4f29-82c5-b63db4992476" name="vist" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="6a9b84b6-ddfd-4452-b954-75d8910105c5" name="id_responsable" nullable="false" scale="10" size=""/>
+            <Attribute datatype="text" defaultvalue="" extra="" fraction="null" id="c7b73486-f50a-4a05-8ed2-db751d9bd518" name="comentari" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="02d4df0c-0799-4d59-a27b-2c8a8f37cab7" name="id_subscripcio" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="800d3189-f065-415e-8dde-52213b7129ed" name="id_servei" nullable="true" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="6d522ff5-4368-4ce1-ab4b-62ef32a2c58f" name="id_responsable_objectiu" nullable="false" scale="10" size=""/>
+            <Index id="707d7e55-1708-45b5-b117-534c9274616b" indextype="PRIMARYKEY" name="PK_COMENTARI">
+                <Indexattribute attributerefid="1a94a547-949a-4436-8914-3ff12925b1ef" id="037492ec-6622-4048-b7ac-5ca919ce04d0"/>
+            </Index>
+        </Table>
+        <Table id="0909daac-a843-44f9-a8ba-50fdea7490d6" name="servei_responsable" schema="">
+            <Property name="LOCATION" value="1325:663"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SERVEI_RESPONSABLE')" extra="" fraction="null" id="50b334d2-4d8f-42bb-a772-72989fe1f039" name="id_servei_responsable" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="3fe67576-96cd-4619-92b2-2b371619f8f9" name="id_servei" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="12737b2f-22d0-4512-adc0-9388c4393982" name="id_responsable" nullable="false" scale="10" size=""/>
+            <Index id="6ad3462b-4a61-4a16-8e45-a6f796608950" indextype="PRIMARYKEY" name="PK_SERVEI_RESPONSABLE">
+                <Indexattribute attributerefid="50b334d2-4d8f-42bb-a772-72989fe1f039" id="b475a5ff-d1d4-469d-a8ac-651c70b6eb6b"/>
+            </Index>
+        </Table>
+        <Table id="0633db7c-d595-4796-a358-8624ac71548c" name="responsable" schema="">
+            <Property name="LOCATION" value="1700:764"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_RESPONSABLE')" extra="" fraction="null" id="95875b9f-5378-418c-b9aa-a841bc949eea" name="id_responsable" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="4c5e7809-0d59-4224-b4a8-c3773ffae351" name="nom" nullable="false" scale="10" size="100"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="f8fb945a-2a81-4630-b9c0-5703159f395a" name="telefon" nullable="false" scale="10" size="20"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="a617a8e9-cd6e-4f4b-8265-6499fb908c46" name="mail" nullable="false" scale="10" size="50"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="ae4626aa-589a-4500-a55b-2ebec8cf60b1" name="id_rol" nullable="false" scale="10" size="10"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="14f5775c-70db-472c-b643-d4b734153c91" name="departament" nullable="false" scale="10" size="50"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="d88adf62-41c4-482e-8779-de94128451c4" name="password" nullable="false" scale="10" size="20"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="99f594ea-1241-44cf-96fb-bd42b2944f82" name="cognoms" nullable="false" scale="10" size="100"/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="96012475-61fe-4cd5-91d6-f7e191133b41" name="username" nullable="false" scale="10" size="15"/>
+            <Index id="52f4c9de-5367-44e8-8c92-e380fdd9c3a0" indextype="PRIMARYKEY" name="PK_RESPONSABLE">
+                <Indexattribute attributerefid="95875b9f-5378-418c-b9aa-a841bc949eea" id="e9416361-2a08-43d0-b4b7-92f214b742b9"/>
+            </Index>
+        </Table>
+        <Table id="cfde6bf5-6b66-4f00-ba7e-3d395795c6f4" name="subscripcio_responsable" schema="">
+            <Property name="LOCATION" value="1653:267"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SUBSCRIPCIO_RESPONSABLE')" extra="" fraction="null" id="393ddadf-5e2b-4b01-89e1-405780cc25aa" name="id_subscripcio_responsable" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="58547038-c694-48e1-b472-c2ff9ca06628" name="id_subscripcio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="613a8dde-e2cf-4d9c-8b48-14862d9ece6e" name="id_responsable" nullable="false" scale="10" size=""/>
+            <Index id="ac44dae2-36f9-4cd5-871c-7e847ce8743c" indextype="PRIMARYKEY" name="PK_SUBSCRIPCIO_RESPONSABLE">
+                <Indexattribute attributerefid="393ddadf-5e2b-4b01-89e1-405780cc25aa" id="1d8a2e03-222f-4d80-99db-2e1b0113c6ed"/>
+            </Index>
+        </Table>
+        <Table id="cbda59d1-c0cd-4de3-95a2-82ed1d524300" name="rol" schema="">
+            <Property name="LOCATION" value="1649:1152"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_ROL')" extra="" fraction="null" id="631995af-61ea-4438-80e9-eef49d4f9f96" name="id_rol" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="2e9032bb-ca6f-45f5-8964-81c73c341f94" name="nom" nullable="false" scale="10" size="20"/>
+            <Index id="8f558022-6aa1-4081-988c-58ccf9c0abaa" indextype="PRIMARYKEY" name="PK_ROL">
+                <Indexattribute attributerefid="631995af-61ea-4438-80e9-eef49d4f9f96" id="8bbf768e-4a58-4190-9783-1e41e2e7785b"/>
+            </Index>
+        </Table>
+        <Table id="447fe2f5-e75b-4c8f-adbb-f62e4d60dafd" name="tipus_ip" schema="">
+            <Property name="LOCATION" value="503:988"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_TIPUS_IP')" extra="" fraction="null" id="3dfc46ac-ff7c-4622-b908-d5351d2be909" name="id_tipus_ip" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="37bd7637-09b0-4683-85cd-a2546873e0e0" name="nom" nullable="false" scale="10" size="20"/>
+            <Index id="b2395a35-c9a3-4426-80d8-ae09a09c9833" indextype="PRIMARYKEY" name="PK_TIPUS_IP">
+                <Indexattribute attributerefid="3dfc46ac-ff7c-4622-b908-d5351d2be909" id="e5a8e94f-02b1-4584-9b25-c27c4c782f7c"/>
+            </Index>
+        </Table>
+        <Table id="54acccab-cd17-474c-8f7c-461cba9dc1c4" name="servei_ip" schema="">
+            <Property name="LOCATION" value="447:649"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SERVEI_IP')" extra="" fraction="null" id="48c2f8f8-94ed-443d-9539-b3f353c28e16" name="id_servei" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="8f6ac4d1-6738-436c-a1a1-da725e3e8b94" name="id_tipus_ip" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="9fabb6a4-6d2b-4fd8-85c2-4c18614497e2" name="ip" nullable="false" scale="10" size="15"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="404f5dac-e760-46af-90cf-19e13e45ee45" name="id_servei_ip" nullable="false" scale="10" size=""/>
+            <Index id="3dc3af44-ac74-4a9f-89f5-390b8af0eeaf" indextype="PRIMARYKEY" name="PK_SERVEI_IP">
+                <Indexattribute attributerefid="404f5dac-e760-46af-90cf-19e13e45ee45" id="31a0ac5c-6c10-40c0-95ae-a049698d344e"/>
+            </Index>
+        </Table>
+        <Table id="4cc09afd-6a24-4c05-adc9-982d4c06c56b" name="subscripcio_ip" schema="">
+            <Property name="LOCATION" value="693:655"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SUBSCRIPCIO_IP')" extra="" fraction="null" id="d9e1838e-0103-4272-bc82-718842c6a6a0" name="id_subscripcio_ip" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="9748afa4-a4cd-4c4c-bb84-5cd0c8d1fa40" name="id_subscripcio" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="7d3ba13e-3a30-411a-bca0-3391df42fcdb" name="id_tipus_ip" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="b73468a6-d873-483d-8b55-ba41b0ae79fd" name="ip" nullable="false" scale="10" size="15"/>
+            <Index id="1bdf5f1a-d7b4-4356-b9ea-824b54b1252b" indextype="PRIMARYKEY" name="PK_SUBSCRIPCIO_IP">
+                <Indexattribute attributerefid="d9e1838e-0103-4272-bc82-718842c6a6a0" id="87636cc8-ff6d-4838-afef-06e7a9b51886"/>
+            </Index>
+        </Table>
+        <Table id="06db4e16-e443-4647-83b9-416bf32becae" name="servei_etiqueta" schema="">
+            <Property name="LOCATION" value="280:763"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_SERVEI_ETIQUETA')" extra="" fraction="null" id="e2819a39-0b12-4711-aa20-5e53b6272b1f" name="id_servei_etiqueta" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="402594a4-b01a-4580-bf35-c26bcb7649ca" name="id_servei" nullable="false" scale="10" size=""/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="16586bf9-d3fe-4e3a-8fda-dd5c687833a5" name="id_etiqueta" nullable="false" scale="10" size=""/>
+            <Index id="6ff8339a-09e9-431c-872b-7335826af545" indextype="PRIMARYKEY" name="PK_SERVEI_ETIQUETA">
+                <Indexattribute attributerefid="e2819a39-0b12-4711-aa20-5e53b6272b1f" id="7580e7e9-eb9b-4311-b5e4-e0a7af49e2cd"/>
+            </Index>
+        </Table>
+        <Table id="c3819694-5b86-4af9-9e5f-395faaccba09" name="etiqueta" schema="">
+            <Property name="LOCATION" value="260:997"/>
+            <Attribute datatype="integer" defaultvalue="nextval('SEQUENCE_ETIQUETA)" extra="" fraction="null" id="73a7e00b-5e23-4c2b-9826-51f4e7235fe0" name="id_etiqueta" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="583e5ddd-8cfb-4415-8c84-07a29d12eb11" name="nom" nullable="false" scale="10" size="50"/>
+            <Index id="b55d2e63-b73d-4817-b952-16d37724e96f" indextype="PRIMARYKEY" name="PK_ETIQUETA">
+                <Indexattribute attributerefid="73a7e00b-5e23-4c2b-9826-51f4e7235fe0" id="53f1fa02-5ba6-45ca-a609-a3e6fc27d74e"/>
+            </Index>
+        </Table>
+        <Table id="17daa78f-f0e7-4672-a185-337f994ad568" name="estat" schema="">
+            <Property name="LOCATION" value="470:115"/>
+            <Attribute datatype="integer" defaultvalue="" extra="" fraction="null" id="7e1dce51-b8c0-4565-bf98-415694952590" name="id_estat" nullable="false" scale="10" size=""/>
+            <Attribute datatype="varchar" defaultvalue="" extra="" fraction="null" id="4845786e-88ce-4d32-850d-bd157eb10429" name="nom" nullable="false" scale="10" size="30"/>
+            <Index id="c564064b-2d86-4c91-9462-7a1c4199a57b" indextype="PRIMARYKEY" name="PK_ESTAT">
+                <Indexattribute attributerefid="7e1dce51-b8c0-4565-bf98-415694952590" id="54e7087b-bbb7-4394-9dc2-96334fb2e6f2"/>
+            </Index>
+        </Table>
+    </Tables>
+    <Relations>
+        <Relation exportingtablerefid="55ba6e60-96c9-4938-a852-d9f9bb3ca059" id="81d4f36a-f7e2-4e8f-857e-0cb7d6f25290" importingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" name="FK_SERVEI_SISTEMA_INFORMACIO" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="cb778796-4ff5-4db2-bf72-2b22a9acfc8d" importingattributerefid="c9125f73-c801-4ce5-ad0f-41247b1dab56"/>
+        </Relation>
+        <Relation exportingtablerefid="55ba6e60-96c9-4938-a852-d9f9bb3ca059" id="12ac1bc8-63b1-46a0-90ae-75e59d8c5257" importingtablerefid="8d4cbd1e-ae0c-4ae7-84ca-13c97372ef1b" name="FK_SUBSCRIPCIO_SISTEMA_INFORMACIO" ondelete="CASCADE" onupdate="CASCADE">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="744:291,160:75"/>
+            <Mapping exportingexpressionrefid="cb778796-4ff5-4db2-bf72-2b22a9acfc8d" importingattributerefid="15cffdd5-406e-4456-94aa-532a9bfed9d2"/>
+        </Relation>
+        <Relation exportingtablerefid="8d4cbd1e-ae0c-4ae7-84ca-13c97372ef1b" id="6d3c3d7b-ac20-42fe-afee-940ab223e121" importingtablerefid="fd833d7f-b602-49d0-abe1-029f52ae5cf7" name="FK_SUBSCRIPCIO_OPERACIO__SUBSCRIPCIO" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="b9e902c1-62b9-48ac-9c79-ca08fd0f2200" importingattributerefid="a47d73f6-d6f5-4198-b54b-9d8ba0b22ac1"/>
+        </Relation>
+        <Relation exportingtablerefid="c32f4dc6-6dc0-4406-9c58-322757e5bb5f" id="a1974fd1-1fcf-419b-9373-7c144a25df46" importingtablerefid="fd833d7f-b602-49d0-abe1-029f52ae5cf7" name="FK_SUBSCRIPCIO_OPERACIO__OPERACIO" ondelete="CASCADE" onupdate="CASCADE">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="1517:82,1771:261"/>
+            <Mapping exportingexpressionrefid="ca4a699e-bedb-45d7-8017-b96a10165efc" importingattributerefid="ee59c1c5-2db0-47f1-901c-72528d7f0711"/>
+        </Relation>
+        <Relation exportingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" id="85bac524-f95a-4884-a3a1-7f2425b1848b" importingtablerefid="0909daac-a843-44f9-a8ba-50fdea7490d6" name="FK_SERVEI_RESPONSABLE__SERVEI" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="1038bdee-cf54-405f-8750-1cab836f1eab" importingattributerefid="3fe67576-96cd-4619-92b2-2b371619f8f9"/>
+        </Relation>
+        <Relation exportingtablerefid="0633db7c-d595-4796-a358-8624ac71548c" id="8101226b-9dcb-4d44-a2e8-61fb78cc1bb6" importingtablerefid="0909daac-a843-44f9-a8ba-50fdea7490d6" name="FK_SERVEI_RESPONSABLE__RESPONSABLE" ondelete="CASCADE" onupdate="CASCADE">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="1591:576,1692:911"/>
+            <Mapping exportingexpressionrefid="e9416361-2a08-43d0-b4b7-92f214b742b9" importingattributerefid="12737b2f-22d0-4512-adc0-9388c4393982"/>
+        </Relation>
+        <Relation exportingtablerefid="8d4cbd1e-ae0c-4ae7-84ca-13c97372ef1b" id="a27257dd-db1c-4854-aecf-00b2e74c07c2" importingtablerefid="cfde6bf5-6b66-4f00-ba7e-3d395795c6f4" name="FK_SUBSCRIPCIO_RESPONSABLE__SUBSCRIPCIO" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="b9e902c1-62b9-48ac-9c79-ca08fd0f2200" importingattributerefid="58547038-c694-48e1-b472-c2ff9ca06628"/>
+        </Relation>
+        <Relation exportingtablerefid="0633db7c-d595-4796-a358-8624ac71548c" id="6770b54b-db6c-47be-a088-3332841a2d60" importingtablerefid="cfde6bf5-6b66-4f00-ba7e-3d395795c6f4" name="FK_SUBSCRIPCIO_RESPONSABLE__RESPONSABLE" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="e9416361-2a08-43d0-b4b7-92f214b742b9" importingattributerefid="613a8dde-e2cf-4d9c-8b48-14862d9ece6e"/>
+        </Relation>
+        <Relation exportingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" id="a3fd4e17-5910-4ebd-a40e-3c3f149597ec" importingtablerefid="c32f4dc6-6dc0-4406-9c58-322757e5bb5f" name="FK_SERVEI_OPERACIO" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="1038bdee-cf54-405f-8750-1cab836f1eab" importingattributerefid="f9c5b9c4-e99a-4d05-8a04-1e6a43c7027e"/>
+        </Relation>
+        <Relation exportingtablerefid="cbda59d1-c0cd-4de3-95a2-82ed1d524300" id="00d66fbc-9e26-4f5e-b04b-09b64c6118d6" importingtablerefid="0633db7c-d595-4796-a358-8624ac71548c" name="FK_RESPONSABLE_ROL" ondelete="NOTHING" onupdate="NOTHING">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="1692:911,1283:780"/>
+            <Mapping exportingexpressionrefid="8bbf768e-4a58-4190-9783-1e41e2e7785b" importingattributerefid="ae4626aa-589a-4500-a55b-2ebec8cf60b1"/>
+        </Relation>
+        <Relation exportingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" id="40f6e927-1ee8-4fae-ba5d-95a91c71a2f9" importingtablerefid="54acccab-cd17-474c-8f7c-461cba9dc1c4" name="FK_SERVEI_IP" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="1038bdee-cf54-405f-8750-1cab836f1eab" importingattributerefid="48c2f8f8-94ed-443d-9539-b3f353c28e16"/>
+        </Relation>
+        <Relation exportingtablerefid="447fe2f5-e75b-4c8f-adbb-f62e4d60dafd" id="8bbf8be4-4863-4b82-8511-17e6a59b0d0c" importingtablerefid="54acccab-cd17-474c-8f7c-461cba9dc1c4" name="FK_SERVEI_TIPUS_IP" ondelete="NOTHING" onupdate="NOTHING">
+            <Mapping exportingexpressionrefid="e5a8e94f-02b1-4584-9b25-c27c4c782f7c" importingattributerefid="8f6ac4d1-6738-436c-a1a1-da725e3e8b94"/>
+        </Relation>
+        <Relation exportingtablerefid="447fe2f5-e75b-4c8f-adbb-f62e4d60dafd" id="66cb209a-2bd5-4633-bada-2a39394d007a" importingtablerefid="4cc09afd-6a24-4c05-adc9-982d4c06c56b" name="FK_SUBSCRIPCIO_TIPUS_IP" ondelete="NOTHING" onupdate="NOTHING">
+            <Property name="labelposition" value="500:0"/>
+            <Property name="points" value="1121:545,1290:666"/>
+            <Mapping exportingexpressionrefid="e5a8e94f-02b1-4584-9b25-c27c4c782f7c" importingattributerefid="7d3ba13e-3a30-411a-bca0-3391df42fcdb"/>
+        </Relation>
+        <Relation exportingtablerefid="8d4cbd1e-ae0c-4ae7-84ca-13c97372ef1b" id="c73f5c08-734c-4300-9699-30f0f710388e" importingtablerefid="4cc09afd-6a24-4c05-adc9-982d4c06c56b" name="FK_SUBSCRIPCIO_IP" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="b9e902c1-62b9-48ac-9c79-ca08fd0f2200" importingattributerefid="9748afa4-a4cd-4c4c-bb84-5cd0c8d1fa40"/>
+        </Relation>
+        <Relation exportingtablerefid="0633db7c-d595-4796-a358-8624ac71548c" id="1713ef8a-f16d-4cad-a4dc-571352146c36" importingtablerefid="c927043a-1d94-43b5-8e3c-25f987f1e70e" name="FK_RESPONSABLE_COMENTARI" ondelete="NOTHING" onupdate="NOTHING">
+            <Property name="labelposition" value="668:-11"/>
+            <Property name="points" value="1381:1077,1700:909"/>
+            <Property name="textoffset" value="0:0"/>
+            <Mapping exportingexpressionrefid="e9416361-2a08-43d0-b4b7-92f214b742b9" importingattributerefid="6a9b84b6-ddfd-4452-b954-75d8910105c5"/>
+        </Relation>
+        <Relation exportingtablerefid="8d4cbd1e-ae0c-4ae7-84ca-13c97372ef1b" id="5316deed-a340-4069-96bc-bae30e9695ae" importingtablerefid="c927043a-1d94-43b5-8e3c-25f987f1e70e" name="FK_SUBSCRIPCIO_COMENTARI" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="b9e902c1-62b9-48ac-9c79-ca08fd0f2200" importingattributerefid="02d4df0c-0799-4d59-a27b-2c8a8f37cab7"/>
+        </Relation>
+        <Relation exportingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" id="533e4816-25f5-446a-9bdf-a8286ac13e19" importingtablerefid="c927043a-1d94-43b5-8e3c-25f987f1e70e" name="FK_SERVEI_COMENTARI" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="1038bdee-cf54-405f-8750-1cab836f1eab" importingattributerefid="800d3189-f065-415e-8dde-52213b7129ed"/>
+        </Relation>
+        <Relation exportingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" id="07b17f19-671a-489b-8e86-0ed36c2a1ec9" importingtablerefid="06db4e16-e443-4647-83b9-416bf32becae" name="FK_SERVEI_ETIQUETA__SERVEI" ondelete="CASCADE" onupdate="CASCADE">
+            <Mapping exportingexpressionrefid="1038bdee-cf54-405f-8750-1cab836f1eab" importingattributerefid="402594a4-b01a-4580-bf35-c26bcb7649ca"/>
+        </Relation>
+        <Relation exportingtablerefid="c3819694-5b86-4af9-9e5f-395faaccba09" id="3e85490e-ff85-4356-a032-a45c6a592466" importingtablerefid="06db4e16-e443-4647-83b9-416bf32becae" name="FK_SERVEI_ETIQUETA__ETIQUETA" ondelete="NOTHING" onupdate="NOTHING">
+            <Mapping exportingexpressionrefid="53f1fa02-5ba6-45ca-a609-a3e6fc27d74e" importingattributerefid="16586bf9-d3fe-4e3a-8fda-dd5c687833a5"/>
+        </Relation>
+        <Relation exportingtablerefid="17daa78f-f0e7-4672-a185-337f994ad568" id="6a451b85-1faa-46ab-b5a4-bd50f51f324e" importingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" name="FK_SERVEI_ESTAT" ondelete="NOTHING" onupdate="NOTHING">
+            <Mapping exportingexpressionrefid="54e7087b-bbb7-4394-9dc2-96334fb2e6f2" importingattributerefid="fe9f46c6-52dc-42b7-8e51-25dd04172b13"/>
+        </Relation>
+        <Relation exportingtablerefid="d810fce6-5f9f-4c6b-ade7-ff2400a0b466" id="858397ec-c1b1-4c75-85f8-866683e3ee1d" importingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" name="FK_SERVEI_TECNOLOGIA" ondelete="NOTHING" onupdate="NOTHING">
+            <Mapping exportingexpressionrefid="7d707916-5561-4a5a-852c-626a41be135f" importingattributerefid="d59ea307-20d8-46c6-92d2-810f08728e9d"/>
+        </Relation>
+        <Relation exportingtablerefid="b6d41077-7614-4e42-b99b-dbb8199ae0a6" id="9bcb2fa6-7f56-4d3d-8045-33e81bee319c" importingtablerefid="f8db1de4-8bdb-4f12-8eec-c835d00795fb" name="FK_SERVEI_METAMODEL" ondelete="NOTHING" onupdate="NOTHING">
+            <Mapping exportingexpressionrefid="b74b3dc2-6afb-4d3c-9c95-712853e5b9cf" importingattributerefid="479b2b6b-ca86-43fb-8798-3429967d157e"/>
+        </Relation>
+        <Relation exportingtablerefid="0633db7c-d595-4796-a358-8624ac71548c" id="7229710c-1378-4b19-bf04-e9e82ade7551" importingtablerefid="c927043a-1d94-43b5-8e3c-25f987f1e70e" name="FK_COMENTARI_RESPONSABLEOBJECTIU" ondelete="NOTHING" onupdate="NOTHING">
+            <Property name="labelposition" value="307:20"/>
+            <Property name="points" value="1381:1077,1700:909"/>
+            <Property name="textoffset" value="0:0"/>
+            <Mapping exportingexpressionrefid="e9416361-2a08-43d0-b4b7-92f214b742b9" importingattributerefid="6d522ff5-4368-4ce1-ab4b-62ef32a2c58f"/>
+        </Relation>
+        <Relation exportingtablerefid="17daa78f-f0e7-4672-a185-337f994ad568" id="49ade5ba-dd7e-4fa4-b851-7d6b2d1419ab" importingtablerefid="8d4cbd1e-ae0c-4ae7-84ca-13c97372ef1b" name="FK_SUBSCRIPCIO_ESTAT" ondelete="NOTHING" onupdate="NOTHING">
+            <Mapping exportingexpressionrefid="54e7087b-bbb7-4394-9dc2-96334fb2e6f2" importingattributerefid="7b8f98f0-6240-45c8-9430-b3ad68d9233b"/>
+        </Relation>
+    </Relations>
+    <Views/>
+    <Subjectareas/>
+    <Comments/>
+</Model>

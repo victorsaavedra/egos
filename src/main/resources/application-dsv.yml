@@ -1,0 +1,14 @@
+postgreSQL:
+   driverClassName: org.postgresql.Driver
+   databaseUrl: jdbc:postgresql://localhost:5432/egos
+   username: postgres
+   password: root
+   
+   
+hibernate:
+   showSql: true
+   dialect: org.hibernate.dialect.PostgreSQLDialect
+   
+   
+   
+   

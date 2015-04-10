@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="favicon.png">
+	
+	<title>Eina de Govern SOA (eGOS)</title>
+	
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/datepicker.css">
+	
+	<link rel="stylesheet" href="assets/css/custom.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	  <script src="assets/js/html5shiv.js"></script>
+	  <script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<!-- Inici header navbar -->	
+	<div class="container">		
+		<div class="navbar navbar-default navbar-header-logo navbar-header-color">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand img-logo" href="index.html" >
+					<img class="img-responsive" src="assets/img/logo.png"  alt="logo">
+				</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right menuPreferences">
+					<li class="dropdown"><a href="#" class="dropdown-toggle nombre-usuario" data-toggle="dropdown">&nbsp;Víctor Saavedra (Govern eGOS)<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="preferenciesEdicio.html"><span class="fa fa-user"></span> Preferències</a></li>
+							<li role="presentation" class="divider"></li>
+							<li><a href="#">Sortir</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Fi header navbar -->
+	
+	<!-- Inici menu navbar -->		
+	<div class="container">		
+		<div class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><strong>eGOS</strong></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="index.html">Catàleg</a>
+					</li>
+					
+					<li>
+						<a href="serveisCerca.html">Els meus serveis</a>
+					</li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administració<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Usuaris</a></li>
+							<li><a href="#">Llistat de mails</a></li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<!-- Fi menu navbar -->
+		
+		<!-- Inici Breadcrumb -->
+		<ol class="breadcrumb">
+			<li><a href="index.html"><strong>eGOS</strong></a></li>
+			<li><a href="serveisCerca.html"><strong>Els Meus Serveis</strong></a></li>
+			<li><a href="serveiEdicio.html"><strong>Edició de servei</strong></a></li>
+		</ol>
+		<!-- Fi Breadcrumb -->
+
+	</div>
+	
+		
+	<div class="container">		
+		
+		<!-- Inici Body -->
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					DRAC - Gestió d'enunciats
+					<button class="btn btn-default pull-right" type="button" data-toggle="modal" href="#deleteServei">
+						Donar servei de baixa
+					</button>
+					<button class="btn btn-default pull-right btn-panel-title" data-toggle="modal" type="button" href="#novaVersio">
+						Nova versió del servei
+					</button>
+				</h3>
+			</div>
+			
+			
+			<div class="panel-body">
+				<form class="form-horizontal">
+					<fieldset>
+						<legend>Proveïdor del servei</legend>
+						<div class="form-group">
+							<label for="sistemaInformacio" class="col-md-3 control-label">Sistema d'Informació</label>
+							<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#nouSistemaInformacio">
+								Nou Sistema d'informació
+							</button>
+							<div class="col-md-4">
+								<input type="text" class="form-control" id="sistemaInformacio" placeholder="">
+							</div>
+						</div>
+						 
+						<div class="form-group">
+							<label for="grupGauss" class="col-md-3 control-label">Grup de Gauss per proves</label>
+							<div class="col-md-4">
+								<input type="text" class="form-control" id="grupGauss" placeholder="">
+							</div>
+						</div>
+												
+							<div class="col-md-12">
+								<div class="tab-content">
+									<!-- Inici Tab Operacions --> 
+									<div class="tab-pane active" id="tabOperacions">
+										
+										<!-- Inici Operacions -->
+										<div class="panel panel-info">
+											<div class="panel-heading">
+												<label>Dades dels responsables técnics</label>
+												<label class="linkCrudAction pull-right" data-toggle="modal" href="#responsablesTecnicsEdicio">
+													<button class="btn btn-default" type="button">
+														<span class="fa fa-plus" data-toggle="tooltip" data-placement="top" title="Afegir"></span>
+														Afegir
+													</button>
+												</label>
+											</div>
+											<div class="table-responsive">
+												<table class="table table-striped ">
+													<thead>
+														<tr>
+															<th class="col-md-5">Nom i cognoms</th>
+															<th class="col-md-3">Departament</th>
+															<th class="col-md-3">Rol</th>
+															<th class="col-md-1">Teléfon</th>
+															<th class="col-md-1">Email</th>
+															<th class="col-md-1">Acció</th>
+														</tr>
+													</thead>
+						
+													<tbody>
+														<tr>
+															<td>Actuar amb respecte, honestedat, tolerància i so</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td class="text-center">
+																<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#deleteRespTecnic">
+																	<span class="fa fa-trash-o"></span>
+																</button>
+															</td>
+														</tr>
+														<tr>
+															<td>Actuar amb respecte, honestedat, tolerància i so</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td class="text-center">
+																<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#deleteRespTecnic">
+																	<span class="fa fa-trash-o"></span>
+																</button>
+															</td>
+														</tr>
+														<tr>
+															<td>Actuar amb respecte, honestedat, tolerància i so</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td>CG1</td>
+															<td class="text-center">
+																<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#deleteRespTecnic">
+																	<span class="fa fa-trash-o"></span>
+																</button>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<!-- Fi Competències Generals -->
+									</div> 	
+									<!-- Fi Tab Competencies Generals -->
+								</div> 
+								<!-- Fi Tab Content -->
+							</div>
+
+					</fieldset>
+					
+					<fieldset>
+						<legend>Control d'accès</legend>
+						<div class="form-group">
+							<div class="col-md-4">
+								<label for="formatSortida" class="col-md-5 control-label">Bus Privat</label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="accesIntranetUPC" class="col-md-3 control-label">Accés intranet UPC</label>
+							<div class="col-md-4">
+								<select id="accesIntranetUPC" class="form-control">
+									<option value="1">Sí</option>
+									<option value="2" selected>No</option>
+								</select>
+							</div>
+						</div>
+						
+						<div id="js-accesIntranet" class="hide">
+							<div class="form-group">
+								<label for="nivellSeguretatPrivat" class="col-md-3 control-label">Nivell de seguretat intranet</label>
+								<div class="col-md-4">
+									<select id="nivellSeguretatPrivat" class="form-control">
+										<option>Baix</option>
+										<option>Mig</option>
+										<option>Alt</option>
+									</select>
+								</div>
+							</div>
+							 
+							<div class="form-group">
+								<label for="ipAccesExplotacio" class="col-md-3 control-label">IPs d'accés a explotació</label>
+								<button id="js-ipExplotacioIntranet" class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#">
+									Afegir nova IP
+								</button>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="ipAccesExplotacio" placeholder="">
+								</div>
+								<div id="novaIpExplotacioIntranet">
+								</div>
+							</div>
+							 
+							<div class="form-group">
+								<label for="ipAccesTest" class="col-md-3 control-label">IPs d'accés a test</label>
+								<button id="js-ipTestIntranet" class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#">
+									Afegir nova IP
+								</button>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="ipAccesTest" placeholder="">
+								</div>
+								<div id="novaIpTestIntranet">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="concurrenciaMaximaPrivat" class="col-md-3 control-label">Concurrència màxima</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="concurrenciaMaximaPrivat" placeholder="2 per defecte">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="cuaLimitacioPrivat" class="col-md-3 control-label">Cua de limitació</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="cuaLimitacioPrivat" placeholder="5 per defecte">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="tempsExpiracioPrivat" class="col-md-3 control-label">Temps d'expiració</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="tempsExpiracioPrivat" placeholder="10 per defecte">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-4">
+								<label for="formatSortida" class="col-md-5 control-label">Bus Públic</label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="accesInternet" class="col-md-3 control-label">Accés internet</label>
+							<div class="col-md-4">
+								<select id="accesInternet" class="form-control">
+									<option value="1">Sí</option>
+									<option value="2" selected>No</option>
+								</select>
+							</div>
+						</div>
+						<div id="js-accesInternet" class="hide">
+							<div class="form-group">
+								<label for="nivellSeguretatPublic" class="col-md-3 control-label">Nivell de seguretat intranet</label>
+								<div class="col-md-4">
+									<select id="nivellSeguretatPublic" class="form-control">
+										<option>Baix</option>
+										<option>Mig</option>
+										<option>Alt</option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="concurrenciaMaximaPublic" class="col-md-3 control-label">Concurrència màxima</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="concurrenciaMaximaPublic" placeholder="2 per defecte">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="cuaLimitacioPublic" class="col-md-3 control-label">Cua de limitació</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="cuaLimitacioPublic" placeholder="5 per defecte">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="tempsExpiracioPublic" class="col-md-3 control-label">Temps d'expiració</label>
+								<div class="col-md-4">
+									<input type="text" class="form-control" id="tempsExpiracioPublic" placeholder="10 per defecte">
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Servei a publicar</legend>
+						<div class="form-group">
+							<label for="urlServeiExplotacio" class="col-md-3 control-label">URL del servei a explotació</label>
+							<div class="col-md-4">
+								<input type="text" class="form-control" id="urlServeiExplotacio" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="urlServeiProves" class="col-md-3 control-label">URL del servei de proves</label>
+							<div class="col-md-4">
+								<input type="text" class="form-control" id="urlServeiProves" placeholder="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="dadesPersonals" class="col-md-3 control-label">Dades Personals</label>
+							<div class="col-md-4">
+								<select id="dadesPersonals" class="form-control">
+									<option>No</option>
+									<option>Baix</option>
+									<option>Mig</option>
+									<option>Alt</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="descripcio" class="col-md-3 control-label">Descripció</label>
+							<div class="col-md-6">
+								<textarea class="form-control" rows="3"></textarea>
+							</div>
+						</div>
+						
+						<div class="col-md-12">
+							<div class="tab-content">
+								<!-- Inici Tab Operacions --> 
+								<div class="tab-pane active" id="tabOperacions">
+									
+									<!-- Inici Operacions -->
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<label>Llistat d'operacions</label>
+											<label class="linkCrudAction pull-right" data-toggle="modal" href="#operacionsEdicio">
+												<button class="btn btn-default" type="button">
+													<span class="fa fa-plus" data-toggle="tooltip" data-placement="top" title="Afegir"></span>
+													Afegir
+												</button>
+											</label>
+										</div>
+										<div class="table-responsive">
+											<table class="table table-striped ">
+												<thead>
+													<tr>
+														<th class="col-md-3">Nom de la operació</th>
+														<th class="col-md-8">Descripció</th>
+														<th class="col-md-1 text-center">Acció</th>
+													</tr>
+												</thead>
+					
+												<tbody>
+													<tr>
+														<td>CG1</td>
+														<td>Actuar amb respecte, honestedat, tolerància i so</td>
+														<td class="text-center">
+															<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#deleteOperacio">
+																<span class="fa fa-trash-o"></span>
+															</button>
+														</td>
+													</tr>
+													<tr>
+														<td>CG2</td>
+														<td>Contribuir activament a la conservació, millora</td>
+														<td class="text-center">
+															<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#deleteOperacio">
+																<span class="fa fa-trash-o"></span>
+															</button>
+														</td>
+													</tr>
+													<tr>
+														<td>CG3</td>
+														<td>Col·laborar i relacionar-se amb els altres empàticament</td>
+														<td class="text-center">
+															<button class="btn btn-default btn-sm" type="button" data-toggle="modal" href="#deleteOperacio">
+																<span class="fa fa-trash-o"></span>
+															</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- Fi Competències Generals -->
+								</div> 	
+								<!-- Fi Tab Competencies Generals -->
+							</div> 
+							<!-- Fi Tab Content -->
+						</div>
+						
+						<div class="form-group">
+							<label for="agrupacio" class="col-md-3 control-label">Agrupació</label>
+							<div class="col-md-4">
+								<select id="agrupacio" class="form-control">
+									<option>Java</option>
+									<option>JSON</option>
+									<option>XML</option>
+									<option>HTML</option>
+								</select>
+							</div>
+						</div>
+
+						
+						<div class="form-group">
+							<label for="formatSortida" class="col-md-3 control-label">Format de la sortida</label>
+							<div class="col-md-4">
+								<select id="formatSortida" class="form-control">
+									<option>Java</option>
+									<option>JSON</option>
+									<option>XML</option>
+									<option>HTML</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="formatSortida" class="col-md-3 control-label">Llista de tags</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" id="manualPDF" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="manualPDF" class="col-md-3 control-label">Adjuntar manual en PDF</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" id="manualPDF" placeholder="">
+							</div>
+							<div class="col-md-3">
+								<button class="btn btn-default btn-sm" type="button">
+									<span class="fa fa-file"></span>
+								</button>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="validacio" class="col-md-3 control-label">Requereix validació?</label>
+							<div class="col-md-4">
+								<select id="validacio" class="form-control">
+									<option>Sí</option>
+									<option>No</option>
+								</select>
+							</div>
+						</div>
+					</fieldset>
+											
+					<div class="form-group">
+						<label for="tipus" class="col-md-3 control-label">Tipus</label>
+						<div class="col-md-4">
+							<select id="tipus" class="form-control">
+								<option>Esborrany</option>
+								<option>En valoració</option>
+								<option>En tràmit</option>
+								<option>Publicat</option>
+								<option>Baixa</option>
+								<option>Anul·lat</option>
+							</select>						
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="pull-right">
+							<button class="btn btn-default" type="button">Tornar</button>
+							<button class="btn btn-default" type="button">Desar Canvis</button>
+						</div>
+					</div>
+				</form>
+				
+			</div>	
+			<div class="panel-body">
+				<form id="comentarisForm" class="form-horizontal">
+					<fieldset>
+						<legend>Comentaris</legend>
+						<div class="form-group">
+							<div class="col-md-8">
+								Vols deixar un comentari?
+							</div>
+							<div class="col-md-11">
+								<textarea class="form-control" rows="6"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="manualPDF" class="col-md-3 control-label">Adjuntar manual en PDF</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" id="manualPDF" placeholder="">
+							</div>
+							<div class="col-md-3">
+								<button class="btn btn-default btn-sm" type="button" data-toggle="modal">
+									<span class="fa fa-file"></span>
+								</button>
+							</div>
+						</div>
+						
+						<div class="col-md-12">
+							<div class="pull-right">
+								<button class="btn btn-default" type="button">Desar Canvis</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+								
+				<div class="container missatges">
+					<div class="row">
+						<div class="col-md-11">
+							<div class="panel panel-missatges">
+								<div class="panel-heading">
+									Govern SOA - 27/05/2014 - 18:40
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-12">
+											Canvis realitzats correctament
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-missatges">
+								<div class="panel-heading">
+									Responsable de la subscripció - 27/05/2014 - 18:31
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-12">
+											Vull cambiar les IPs d'accés a explotació per aquestes: xxx.xxx.xxx.xxx	
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-missatges">
+								<div class="panel-heading">
+									Govern SOA - 27/05/2014 - 18:40
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-12">
+											Canvis realitzats correctament
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-missatges">
+								<div class="panel-heading">
+									Responsable de la subscripció - 27/05/2014 - 18:31
+								</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-12">
+											Vull cambiar les IPs d'accés a explotació per aquestes: xxx.xxx.xxx.xxx	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- /container -->
+	</div>
+	
+	<div id="novaVersio" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						<strong>Crear una nova versió del servei</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						Segur que vols crear una nova versió del servei? Aquesta versió continuarà funcionant.
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Tornar</button>
+					<button id="confirmacioEsborrarAmbit" type="button" class="btn btn-default" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	
+	<div id="deleteServei" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						<strong>Donar de baixa servei</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						Segur que vols donar de baixa aquest servei? Els subscriptors serán informats.
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Tornar</button>
+					<button id="confirmacioEsborrarAmbit" type="button" class="btn btn-default" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	
+	<div id="deleteOperacio" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						<strong>Eliminar operació</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						Segur que vols eliminar aquesta operació?
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Tornar</button>
+					<button id="confirmacioEsborrarAmbit" type="button" class="btn btn-default" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	
+		
+	<div id="operacionsEdicio" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						<strong>Nova operació</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="nomCognoms" class="col-md-3 control-label">Nom de la operació</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="nomCognoms">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="departament" class="col-md-3 control-label">Descripció</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="departament">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Tornar</button>
+					<button id="confirmacioEsborrarAmbit" type="button" class="btn btn-default" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	<div id="deleteRespTecnic" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						<strong>Eliminar responsable</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						Segur que vols eliminar aquest responsable?
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Tornar</button>
+					<button id="confirmacioEsborrarAmbit" type="button" class="btn btn-default" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	
+		
+	<div id="responsablesTecnicsEdicio" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						<strong>Nou responsable técnic</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="nomCognoms" class="col-md-3 control-label">Nom i Cognoms</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="nomCognoms">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="departament" class="col-md-3 control-label">Departament</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="departament">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="rol" class="col-md-3 control-label">Rol</label>
+							<div class="col-md-8">
+								<select id="rol" class="form-control">
+									<option>Técnic</option>
+									<option>Oficial</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="telefon" class="col-md-3 control-label">Teléfon</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="telefon">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-md-3 control-label">Email</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="email">
+							</div>
+						</div>
+						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Tornar</button>
+					<button id="confirmacioEsborrarAmbit" type="button" class="btn btn-default" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+
+	<div id="nouSistemaInformacio" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						<strong>Vols afegir un nou sistema d'informació?</strong>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="cuaLimitacioPrivat" class="col-md-3 control-label">Nom</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" id="nom">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Tornar</button>
+					<button id="confirmacioEsborrarAmbit" type="button" class="btn btn-default" data-dismiss="modal">Guardar</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+	<!-- ====================================  JavaScript   ==================================== -->
+	<script src="assets/js/jquery-1.10.2.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/serveiEdicio.js"></script>
+	<script src="assets/js/bootstrap-datepicker.js"></script>
+	<script src="assets/js/tooltip.js"></script>
+	
+	
+	
+</body>
+</html>

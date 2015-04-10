@@ -1,0 +1,16 @@
+ALTER TABLE subscripcio ALTER id_subscripcio TYPE integer;
+ALTER TABLE servei ALTER id_servei TYPE integer;
+ALTER TABLE servei_tecnologia ALTER id_servei_tecnologia TYPE integer;
+ALTER TABLE tecnologia ALTER id_tecnologia TYPE integer;
+ALTER TABLE servei_metamodel ALTER id_servei_metamodel TYPE integer;
+ALTER TABLE metamodel ALTER id_metamodel TYPE integer;
+ALTER TABLE servei_ip ALTER id_servei TYPE integer;
+ALTER TABLE subscripcio_ip ALTER id_subscripcio_ip TYPE integer;
+ALTER TABLE tipus_ip ALTER id_tipus_ip TYPE integer;
+ALTER TABLE subscripcio_operacio ALTER id_subscripcio_operacio TYPE integer;
+ALTER TABLE subscripcio_responsable ALTER id_subscripcio_responsable TYPE integer;
+ALTER TABLE operacio ALTER id_operacio TYPE integer;
+ALTER TABLE servei_responsable ALTER id_servei_responsable TYPE integer;
+ALTER TABLE responsable ALTER id_responsable TYPE integer;
+ALTER TABLE rol ALTER id_rol TYPE integer;
+ALTER TABLE comentari ALTER id_comentari TYPE integer;

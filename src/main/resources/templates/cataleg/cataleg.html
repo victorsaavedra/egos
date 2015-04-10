@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html data-layout-decorator="layout">
+
+
+	<body>	
+		<!-- Inici Catàleg -->
+		<div class="container" data-layout-fragment="content">
+			<input type="hidden" id="metamodelSeleccionat" name="metamodelSeleccionat" data-th-value="${catalegForm.metamodelCerca}"/>
+			<form id="formJumbotron" data-th-action="@{/}" data-th-object="${catalegForm}" data-th-method="post">
+				<div class="jumbotron">
+					<div class="container">
+						<div class="row">
+							<div class="js-jumbotron col-md-4 text-center">
+								<span id="tots-circle" class="fa-stack fa-3x" data-idMetamodel="7">
+									<a href="#">
+										<i id="fa-circle-servei" class="fa fa-circle fa-stack-2x js-circle circle-active"></i>
+									</a>
+									<i id="fa-icon-circle-servei" class="fa fa-globe fa-stack-1x js-icon icon-circle-active"></i>
+								</span>
+							</div>
+							<div class="js-jumbotron col-md-4 text-center">
+								<span id="identitat-circle" class="fa-stack fa-3x" data-idMetamodel="2"> 
+									<a href="#">
+										<i id="fa-circle-subscripcio" class="fa fa-circle fa-stack-2x js-circle circle"></i>
+									</a> 
+									<i id="fa-icon-circle-subscripcio" class="fa fa-desktop fa-stack-1x js-icon icon-circle"></i>
+								</span>
+							</div>
+							<div class="js-jumbotron col-md-4 text-center">
+								<span id="docencia-circle" class="fa-stack fa-3x" data-idMetamodel="3"> 
+									<a href="#">
+										<i id="fa-circle-subscripcio" class="fa fa-circle fa-stack-2x js-circle circle"></i>
+									</a> 
+									<i id="fa-icon-circle-subscripcio" class="fa fa-graduation-cap fa-stack-1x js-icon icon-circle"></i>
+								</span>
+							</div>
+						</div>
+						<div class="row metamodel">
+							<div class="js-jumbotron col-md-4 text-center metamodel" data-th-each="metamodelJumbotron, itetableStatusJumbotron : ${catalegForm.registresMetamodelJumbotron}" data-th-if="${itetableStatusJumbotron.index} &lt; 3">
+								<span data-th-text="${metamodelJumbotron.nom}">Nom Metamodel Jumbotron</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="js-jumbotron col-md-4 text-center">
+								<span id="doctorands-circle" class="fa-stack fa-3x" data-idMetamodel="4"> 
+									<a href="#">
+										<i id="fa-circle-servei" class="fa fa-circle fa-stack-2x js-circle circle"></i>
+									</a> 
+									<i id="fa-icon-circle-servei" class="fa fa-university fa-stack-1x js-icon icon-circle"></i>
+								</span>
+							</div>
+							<div class="js-jumbotron col-md-4 text-center">
+								<span id="biblioteques-circle" class="fa-stack fa-3x" data-idMetamodel="5"> 
+									<a href="#">
+										<i id="fa-circle-servei" class="fa fa-circle fa-stack-2x js-circle circle"></i>
+									</a> 
+									<i id="fa-icon-circle-servei" class="fa fa-book fa-stack-1x js-icon icon-circle"></i>
+								</span>
+							</div>
+							<div class="js-jumbotron col-md-4 text-center">
+								<span id="alumnes-circle" class="fa-stack fa-3x" data-idMetamodel="1">
+									<a href="#">
+										<i id="fa-circle-servei" class="fa fa-circle fa-stack-2x js-circle circle"></i>
+									</a> 
+									<i id="fa-icon-circle-servei" class="fa fa-group fa-stack-1x js-icon icon-circle"></i>
+								</span>
+							</div>
+						</div>
+						
+						<div class="row metamodel">
+							<div class="js-jumbotron col-md-4 text-center metamodel" data-th-each="metamodelJumbotron, itetableStatusJumbotron : ${catalegForm.registresMetamodelJumbotron}" data-th-if="${itetableStatusJumbotron.index} &lt; 6 and ${itetableStatusJumbotron.index} &gt; 2">
+								<span data-th-text="${metamodelJumbotron.nom}">Nom Metamodel Jumbotron</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" id="metamodelCerca" name="metamodelCerca"/>
+			</form>
+	
+			<div class="row">
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							<form id="formCerca" data-th-action="@{/}" data-th-object="${catalegForm}" data-th-method="post" class="form-horizontal">
+								<div class="form-group">
+									<label for="nom" class="col-md-1 control-label" data-th-text="#{cataleg.form.nom}">Nom</label>
+									<div class="col-md-8 col-md-offset-1">
+										<input type="text" class="form-control" id="nomCerca" name="nomCerca" data-th-field="*{nomCerca}" value="*{nomCerca}" />
+									</div>
+									<div class="col-md-2">
+										<button id="cerca" type="button" class="btn btn-default pull-right" data-th-text="#{global.button.cercar}">Cercar</button>
+									</div>
+								</div>
+							</form>
+							<!-- <div class="form-group">
+								<div class="col-md-4 checkbox-inline" style="bottom:15px; margin-top:20px">
+									<div class="col-md-12 checkbox-inline">
+										<label class="checkbox-inline"> 
+											<input type="radio" name="filtrat" id="servei" value="1" checked="checked" data-th-text="#{global.title.servei}" />
+										</label> 
+										<label class="checkbox-inline"> 
+											<input type="radio" name="filtrat" id="subscripcio" value="2" data-th-text="#{global.title.subscripcio}" />
+										</label>
+									</div>
+								</div> 
+							</div>-->
+						</div>
+					</div>
+	
+					<!-- Inici catàleg -->
+					<div class="panel panel-info">
+	
+						<!-- Inici Item catàleg -->
+						<div class="panel-group" id="serveis">
+							<div class="panel panel-default">
+								<!-- INICIO BUCLE SISTEMA INFORMACIO -->
+								<div data-th-each="sistemaInformacio : ${catalegForm.registresServeisCataleg}">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#serveis" data-th-href="'#Collapse' + ${sistemaInformacio.idSistemaInformacio}"> 
+												<b data-th-text="${sistemaInformacio.nom}"></b>
+											</a>
+										</h4>
+									</div>
+									<form id="formServei" data-th-action="@{/serveis/}" data-th-object="${catalegForm}" data-th-method="get" class="form-horizontal">
+										<div data-th-id="'Collapse' + ${sistemaInformacio.idSistemaInformacio}" class="panel-collapse collapse in">
+											<!--Entrada del catàleg-->
+											<!-- INICIO BUCLE SISTEMAINFORMACIO.SERVEI -->
+											<div class="panel panel-catalogo" data-th-each="servei : ${sistemaInformacio.serveis}">
+												<div class="panel-heading">
+													<h3 class="panel-title" data-th-text="${servei.nom}" data-th-href="'/?serveis=' + ${servei.idServei}">Nom del servei</h3>
+												</div>
+												<div class="panel-body">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="pull-left">
+																<ul
+																	class="llista-enllasos verticalAlignMiddleExcelExportar">
+																	<li><a data-th-text="#{cataleg.servei.label.contracte}" href="#">Contracte</a></li>
+																	<li><a data-th-text="#{cataleg.servei.label.integracio}" href="#">WSDL Integració</a></li>
+																	<li><a data-th-text="#{cataleg.servei.label.explotacio}" href="#">WSDL explotació</a></li>
+																	<li><a data-th-text="#{cataleg.servei.label.manual}" href="#">Manual d'ús</a></li>
+																</ul>
+															</div>
+															<div class="pull-right">
+																<button data-th-href="@{/serveis/{id}(id=${servei.idServei})}" class="js-serveiEdicio btn btn-default btn-sm" type="button">
+																	<span class="fa fa-pencil"></span>
+																</button>
+																<button href="novaSubscripcio.html" data-th-text="#{cataleg.servei.button.subscribirse}" class="btn btn-default btn-sm" type="button">
+																		Subscribirse al servei
+																</button>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<p data-th-text="${servei.descripcio}"> Descripció del servei</p>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-2" data-th-text="#{cataleg.servei.label.subscripcions}">Subscripcions:</div>
+														<div class="col-md-10 pull-left">
+															<ul style="display:inline;margin-left:-80px;">
+																<li style="margin-left:5px;" data-th-each="operacioSubscripcio : ${catalegForm.registresServeisSubscripcions}" data-th-if="${operacioSubscripcio[0] == servei.idServei}" >
+																	<a data-th-text="${operacioSubscripcio[1].sistemaInformacio.nom}" href="#">
+																		Subscripcio
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-2" data-th-text="#{cataleg.servei.label.etiquetes}">Etiquetes:</div>
+														<div class="col-md-10 pull-left">
+															<ul style="display:inline;margin-left:-80px;">
+																<li style="margin-left:6px;" data-th-each="etiquetes : ${servei.serveiEtiquetes}" >
+																	<a data-th-text="${etiquetes.etiqueta.nom}" href="#">
+																		Etiqueta
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="row" style="margin-top:5px !important;">
+														<div class="col-md-12">
+															<div class="pull-right">
+																<span data-th-text="#{cateleg.servei.label.contacte}">Contacte:</span>
+																<i class="fa fa-envelope-o"></i>
+																<a href="#" data-th-each="responsables : ${servei.serveiResponsables}">
+																	<span data-th-if="${responsables.responsable.rol.idRol} == 2" data-th-text="${responsables.responsable.nomCognoms}">
+																		Mail responsable
+																	</span>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="pull-left" data-th-text="${servei.estat.nom}">Estat</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a href="nouServei.html" data-th-href="@{/serveis/form}">
+						<button id="nou-servei" type="button" class="btn btn-success btn-width-complet" data-th-text="#{cataleg.servei.button.nouServei}">
+							Oferir nou servei
+						</button>
+					</a>
+					<form id="formSidebar" data-th-action="@{/}" data-th-object="${catalegForm}" data-th-method="post">
+						<input type="hidden" id="etiquetaCerca" />
+						<input type="hidden" id="tecnologiaCerca" />
+						<input type="hidden" id="metamodelCerca" />
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title" data-th-text="#{cataleg.sidebar.title.etiquetes}">Etiquetes</h3>
+							</div>
+							<div class="panel-body">
+								<ul>
+									<li data-th-each="etiqueta, iterableStatusEtiqueta : ${catalegForm.registresMestresEtiqueta}" data-th-if="${iterableStatusEtiqueta.index} &lt; 5">
+										<a class="js-tecnologiaSidebar" data-th-text="${etiqueta[0].nom}+' ('+${etiqueta[1]}+')'" data-th-value="${etiqueta[0].idEtiqueta}" data-th-href="'/?etiquetaCerca=' + ${etiqueta[0].idEtiqueta}">
+											Etiqueta (Numero)
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title" data-th-text="#{cataleg.sidebar.title.serveis}">Últims serveis afegits</h3>
+							</div>
+							<div class="panel-body">
+								<ul>
+									<li data-th-each="serveisNous, iterableStatusServeisNous : ${catalegForm.registresServeiMesNous}" data-th-if="${iterableStatusServeisNous.index} &lt; 2">
+										<a data-th-text="${serveisNous.nom}" href="#">
+											Servei
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title" data-th-text="#{cataleg.sidebar.title.tecnologia}">Formats de sortida</h3>
+							</div>
+							<div class="panel-body">
+								<ul>
+									<li data-th-each="tecnologia : ${catalegForm.registresMestresTecnologia}">
+										<a class="js-tecnologiaSidebar" data-th-text="${tecnologia.nom}" data-th-value="${tecnologia.idTecnologia}" data-th-href="'/?tecnologiaCerca=' + ${tecnologia.idTecnologia}">
+											Tecnologia
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title" data-th-text="#{cataleg.sidebar.title.metamodel}">Metamodel</h3>
+							</div>
+							<div class="panel-body">
+								<ul>
+									<li data-th-each="metamodel : ${catalegForm.registresMestresMetamodel}">
+										<a class="js-metamodelSidebar" data-th-text="${metamodel.nom}" data-th-value="${metamodel.idMetamodel}" data-th-href="'/?metamodelCerca=' + ${metamodel.idMetamodel}">
+											Metamodel
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</form>
+					<div class="col-md-2">
+						<i class="fa fa-sign-in fa-2x"></i>
+					</div>
+					<label for="exportar-a-excel" class="col-md-10 verticalAlignMiddleExcelExportar" data-th-text="#{cataleg.sidebar.title.excel}">
+							Exportar a Excel
+					</label>
+				</div>
+			</div>
+		</div>
+		<!-- Fi Catàleg -->
+	</body>
+	
+	<script data-layout-fragment="customJavascript" src="../static/js/cataleg.js" data-th-src="@{/js/cataleg.js}"></script>
+</html>

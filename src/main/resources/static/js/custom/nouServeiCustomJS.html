@@ -1,0 +1,37 @@
+	  	<!-- JAVASCRIPT -->
+	  	<script src="../static/js/vendor/jquery-1.10.2.min.js" data-th-src="@{/js/vendor/jquery-1.10.2.min.js}"></script>
+	  	<script src="../static/js/vendor/bootstrap.min.js" data-th-src="@{/js/vendor/bootstrap.min.js}"></script>
+	  	<script src="../static/js/vendor/handlebars-v1.1.2.js" data-th-src="@{/js/vendor/handlebars-v1.1.2.js}"></script>
+	  	<script src="../static/js/vendor/jquery.json-2.4.min.js" data-th-src="@{/js/vendor/jquery.json-2.4.min.js}"></script>
+	  	<script src="../static/js/sgid-common.js" data-th-src="@{/js/egos-common.js}"></script>
+		<script src="../static/js/nouServei.js" data-th-src="@{/js/nouServei.js}"></script>
+	
+		<!-- TEMPLATES -->
+	
+		<script id="templateResponsablesTable" type="text/x-handlebars-template">
+			<tr class="js-registreResponsable">
+				<td data-username="{{usernameResponsable}}" data-password="{{passwordResponsable}}">{{nomCognomsResponsable}}</td>
+	    		<td>{{departamentResponsable}}</td>
+	   		 	<td data-idrol="{{rolResponsable}}">{{rolTextResponsable}}</td>
+	    		<td>{{telefonResponsable}}</td>
+	    		<td>{{mailResponsable}}</td>
+	    		<td>
+					<button class="btn btn-default btn-sm js-deleteResponsable" type="button" data-toggle="modal">
+						<span class="fa fa-trash-o"></span>
+					</button>
+				</td>
+	    	</tr>
+		</script>
+		
+		<script id="templateRegistresResponsableTable" type="text/x-handlebars-template">
+			{{#each this}}
+				<input type="text" name="registresResponsable[{{@index}}].idResponsable" value="-1"/>
+				<input type="text" name="registresResponsable[{{@index}}].nomCognoms" value="{{nomCognoms}}"/>
+				<input type="text" name="registresResponsable[{{@index}}].username" value="{{username}}"/>
+				<input type="text" name="registresResponsable[{{@index}}].password" value="{{password}}"/>							
+				<input type="text" name="registresResponsable[{{@index}}].departament" value="{{departament}}"/>
+				<input type="text" name="registresResponsable[{{@index}}].rol.idRol" value="{{idRol}}"/>
+				<input type="text" name="registresResponsable[{{@index}}].telefon" value="{{telefon}}"/>
+				<input type="text" name="registresResponsable[{{@index}}].mail" value="{{email}}"/>
+			{{/each}}
+		</script>
