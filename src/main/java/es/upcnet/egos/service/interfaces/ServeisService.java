@@ -21,4 +21,6 @@ public interface ServeisService {
 	Servei save(ServeisForm serveisForm);
 	
 	Servei findServeiById(Integer idServei);
+
+	List<Servei> findAll();
 }

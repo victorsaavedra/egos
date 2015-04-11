@@ -14,11 +14,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.upcnet.egos.domain.Servei;
 import es.upcnet.egos.domain.SistemaInformacio;
 import es.upcnet.egos.form.ServeisForm;
+import es.upcnet.egos.json.ServeisJson;
 import es.upcnet.egos.service.interfaces.ComentariService;
 import es.upcnet.egos.service.interfaces.ServeisService;
 import es.upcnet.egos.service.interfaces.SistemaInformacioService;
@@ -129,6 +131,19 @@ public class ServeisController {
     	serveisService.inicialitzarRegistresEdicio(serveisForm);
     	
     	return new ModelAndView(ServeisView.EDITAR.getView(), SERVEIS_FORM , serveisForm);
+    }
+
+	@RequestMapping(value = "/json", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public final ServeisJson listJsonServeis()  {
+		List<Servei> registresServei;
+		final ServeisJson serveiJson = new ServeisJson();
+
+		registresServei = serveisService.findAll();
+    	
+    	serveiJson.setServeis(registresServei);
+    	
+    	return serveiJson;
     }
 
     

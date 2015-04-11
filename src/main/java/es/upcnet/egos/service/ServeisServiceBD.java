@@ -212,4 +212,11 @@ public class ServeisServiceBD implements ServeisService {
 		return servei;
 	}
 
+	@Override
+	public List<Servei> findAll() {
+		final List<Servei> registresServei = serveiRepository.findAll();
+		
+		return registresServei;
+	}
+
 }
