@@ -1,0 +1,7 @@
+#Skipping tests
+
+mvn clean install -DskipTests=true -Dmaven.test.failure.ignore=true sonar:sonar -Dsonar-database=mysql -Dsonar.jdbc.driver=com.mysql.jdbc.Driver -Dsonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true
+
+#No Skipping tests
+
+mvn clean install sonar:sonar -Dsonar-database=mysql -Dsonar.jdbc.driver=com.mysql.jdbc.Driver -Dsonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true
