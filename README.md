@@ -1,5 +1,7 @@
-# GID
-Projecte bla bla bla ....
+# EGOS
+Projecte final de carrera de Víctor Saavedra Martínez, estudiant d'Enginyeria Informàtica a la Universitat Autònoma de Barcelona.
+
+El projecte consta d'un catàleg de serveis web i un sistema de gestió d'aquests.
 
 
 ### Requisits tècnics de l'entorn de desenvolupament 
