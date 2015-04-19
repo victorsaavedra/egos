@@ -7,34 +7,31 @@
 			<div class="navbar navbar-default">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="cataleg.html" data-th-href="@{/}"><strong>eGOS</strong></a>
+					<a class="navbar-brand" href="cataleg.html" data-th-href="@{/}" data-th-text="#{global.app.title}">
+						eGOS
+					</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li>
-							<a href="cataleg.html" data-th-href="@{/}">Catàleg</a>
-						</li>
-						
-						<li>
-							<a href="serveisCerca.html" data-th-href="@{/serveis}">Els meus serveis</a>
-						</li>
-	
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administració<b class="caret"></b></a>
+						<li><a href="cataleg.html" data-th-href="@{/}" data-th-text="#{cataleg.title.normal}">Catàleg</a></li>
+						<li><a href="serveisCerca.html" data-th-href="@{/serveis}" data-th-text="#{serveis.title.serveis}">Els meus serveis</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-th-text="#{global.app.administracio}">Administració
+								<b class="caret"></b>
+							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Usuaris</a></li>
-								<li><a href="#">Llistat de mails</a></li>
+								<li><a href="#" data-th-text="#{administracio.title.usuaris}">Usuaris</a></li>
+								<li><a href="#" data-th-text="#{administracio.title.llistat}">Llistat de mails</a></li>
 							</ul>
 						</li>
 					</ul>
-	
 				</div>
 			</div>
 		</div>
-		
-		
 	</body>
 	
 </html>
