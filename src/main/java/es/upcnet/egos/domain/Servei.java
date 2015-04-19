@@ -18,10 +18,14 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(schema = "public", name = "servei")
@@ -82,7 +86,10 @@ public class Servei implements Serializable {
 	@Column(name = "validacio")
 	private Integer validacio;
 	
+	@NotNull
 	@Column(name = "nom")
+	@NotEmpty(message="{validation_servei_nomEmpty}")
+    @Size(max=20, message="{validation_servei_nomLenght}")
 	private String nom;
 	
 	@Temporal(TemporalType.DATE)

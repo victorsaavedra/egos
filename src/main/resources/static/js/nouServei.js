@@ -114,18 +114,10 @@ $(document).ready( function() {
 		$('#js-wizardPage2').addClass('current');
 		
 		//Buttons
-		if($('#previous').hasClass('disabled')) {
-			$('#previous').removeClass('disabled');
-		}
-		if(!$('#guardar').hasClass('hide')) {
-			$('#guardar').addClass('hide');
-		}
-		if($('#next').hasClass('disabled')) {
-			$('#next').removeClass('disabled');
-		}
-		if($('#next').hasClass('hide')) {
-			$('#next').removeClass('hide');
-		}
+		if($('#previous').hasClass('disabled')) $('#previous').removeClass('disabled');
+		if(!$('#guardar').hasClass('hide')) $('#guardar').addClass('hide');
+		if($('#next').hasClass('disabled')) $('#next').removeClass('disabled');
+		if($('#next').hasClass('hide')) $('#next').removeClass('hide');
 	});
 
 	$('#js-wizardPage3').click(function() {
