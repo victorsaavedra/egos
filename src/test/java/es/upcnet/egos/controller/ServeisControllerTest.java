@@ -4,7 +4,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,6 @@ public class ServeisControllerTest extends AbstractTransactionalJUnit4SpringCont
 	}
 	
 	@Test
-	@Ignore
 	public void retornar_resposta_200_ok_json_serveis() throws Exception {			
 		mockMvc.perform(get("/serveis/json")
 				.accept(MediaType.parseMediaType("application/json;charset=UTF-8")))
