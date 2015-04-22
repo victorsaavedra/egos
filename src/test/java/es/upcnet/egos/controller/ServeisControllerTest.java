@@ -37,4 +37,11 @@ public class ServeisControllerTest extends AbstractTransactionalJUnit4SpringCont
 				.accept(MediaType.parseMediaType("application/json;charset=UTF-8")))
 				.andExpect(status().isOk());
 	}
+	
+	@Test
+	public void retornar_reposta_200_ok_cerca_serveis() throws Exception {
+		mockMvc.perform(get("/serveis").param("nom", "Servei 1"))
+				.andExpect(status().isOk());
+				
+	}	
 }
