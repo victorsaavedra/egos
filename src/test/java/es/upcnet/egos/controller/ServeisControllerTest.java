@@ -1,6 +1,8 @@
 package es.upcnet.egos.controller;
 
+import static org.hamcrest.Matchers.hasProperty;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
@@ -43,5 +45,14 @@ public class ServeisControllerTest extends AbstractTransactionalJUnit4SpringCont
 		mockMvc.perform(get("/serveis").param("nom", "Servei 1"))
 				.andExpect(status().isOk());
 				
-	}	
+	}
+	
+	@Test
+	public void reposta_cerca_serveis_conte_registre_per_nom() throws Exception {
+		mockMvc.perform(get("/serveis").param("nomCerca", "Servei 1"))
+				.andExpect(status().isOk())
+				.andExpect(model().attribute("serveisForm", 
+						hasProperty("registresServeisCataleg" 
+								)));
+	}
 }
