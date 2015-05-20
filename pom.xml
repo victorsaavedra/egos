@@ -133,7 +133,7 @@
 		<slf4j.version>1.7.5</slf4j.version>
 		<start-class>es.upcnet.egos.Application</start-class>
 		<java.version>1.7</java.version>
-		
+		<jasperreports.version>5.5.1</jasperreports.version>
 		<aspectj.version>1.7.2</aspectj.version>
 		<java.version>1.6</java.version>
 		<servlet.api.version>2.5</servlet.api.version>
