@@ -280,33 +280,6 @@
 				</dependencies>
 			</plugin>
 			
-			<plugin>
-			     <groupId>com.samaxes.maven</groupId>
-			     <artifactId>minify-maven-plugin</artifactId>
-			     <version>1.7.2</version>
-			     <executions>
-			          <execution>
-			               <id>default-minify</id>
-			               <configuration>
-			                    <charset>UTF-8</charset>
-			                    <cssSourceDir>assets/css</cssSourceDir>
-			                    <cssSourceIncludes>
-			                         <cssSourceFile>*.css</cssSourceFile>
-			                    </cssSourceIncludes>
-			                    <nosuffix>true</nosuffix>
-			                    <jsSourceDir>assets/js</jsSourceDir>
-			                    <jsSourceIncludes>
-			                         <jsSourceFile>*.js</jsSourceFile>
-			                    </jsSourceIncludes>
-			                    <skipMerge>true</skipMerge>
-			               </configuration>
-			               <goals>
-			                    <goal>minify</goal>
-			               </goals>
-			          </execution>
-			     </executions>
-			</plugin>
-
 		</plugins>
 		<pluginManagement>
 			<plugins>
