@@ -51,8 +51,6 @@ public class ServeisControllerTest extends AbstractTransactionalJUnit4SpringCont
 	public void reposta_cerca_serveis_conte_registre_per_nom() throws Exception {
 		mockMvc.perform(get("/serveis").param("nomCerca", "Servei 1"))
 				.andExpect(status().isOk())
-				.andExpect(model().attribute("serveisForm", 
-						hasProperty("registresServeisCataleg" 
-								)));
+				.andExpect(model().attribute("serveisForm", hasProperty("registresServeisCataleg")));
 	}
 }
