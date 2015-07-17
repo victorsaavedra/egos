@@ -1,5 +1,8 @@
 package es.upcnet.egos.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +40,28 @@ public class CatalegController {
 		final List<SistemaInformacio> registresSubscripcioCerca = catalegService.findSubscripcioByCriteriCerca(catalegForm);
 		catalegForm.setRegistresServeisCataleg(registresServeisCerca);
 		catalegForm.setRegistresSubscripcionsCataleg(registresSubscripcioCerca);
+		
+		String password="secret";
+		MessageDigest sha256;
+		try {
+			sha256 = MessageDigest.getInstance("SHA-256");
+			sha256.update(password.getBytes("UTF-8"));
+			byte[] digest = sha256.digest();
+			StringBuffer sb=new StringBuffer();
+			for(int i=0; i<digest.length;i++){
+			    sb.append(String.format("%02x", digest[i]));
+			}
+
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+
     	
     	return new ModelAndView(CatalegView.CERCA.getView(),CATALEG_FORM, catalegForm);
     }

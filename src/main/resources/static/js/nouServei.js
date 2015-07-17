@@ -1,7 +1,13 @@
 $(document).ready( function() {
 
 	$('#guardarNouServei').click(function(){
-		$("#sistemaInformacio option:selected").each(function() {
+		
+		$('#campos-error').removeClass("hide");
+		$('#nom-group').addClass("has-error");
+		$('#panel-responsables').removeClass("panel-info");
+		$('#panel-responsables').addClass("panel-danger");
+		
+		/*$("#sistemaInformacio option:selected").each(function() {
 			$('#nomSistemaInformacioNou').val( $(this).text() );
 			$('#idSistemaInformacioNou').val( $(this).val() );
 			
@@ -12,7 +18,7 @@ $(document).ready( function() {
 			$('#formEdicio').attr('method', "POST");
 			
 			$('#nouServeiForm').submit();
-		});
+		});*/
 	});
 	
 	$('#next').click(function() {

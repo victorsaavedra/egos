@@ -174,4 +174,4 @@ $(document).ready( function() {
 		var nouRegistre = "<div class='col-md-offset-3 col-md-4'><input type='text' class='form-control insertIpDinamica' id='ipAccesExplotacio' placeholder=''></div>";
 		$('#novaIpTestIntranet').append(nouRegistre);
 	});
-});
+}).delay(5000);

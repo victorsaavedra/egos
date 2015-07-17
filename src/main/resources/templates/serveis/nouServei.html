@@ -10,16 +10,31 @@
 				<a id="js-wizardPage3"><span class="badge badge-inverse">3</span> <span data-th-text="#{servei.form.label.servei}">Servei a publicar</span></a>
 			</div>
 			
+
+			
 			<div class="panel-body">
 				<div class="row">
+			
+			
+
 					<form class="form-horizontal" id="nouServeiForm" data-th-action="@{/serveis/-1}" data-th-object="${serveisForm}" data-th-method="POST">						
 						<input type="hidden" id="nomSistemaInformacioNou" data-th-field="*{nomSistemaInformacioNou}"/>
 						<input type="hidden" id="idSistemaInformacioNou" data-th-field="*{idSistemaInformacioNou}"/>
 						<input type="hidden" id="registresResponsable" data-th-field="*{registresResponsable}" />
+						
+				<div id="campos-error" style="margin-top:10px;" class="hide alert alert-danger">
+					
+						<b>Error</b> <br />
+						Falten els camps següents: <br />
+						 <ul>
+						 <li>Nom del Servei</li>
+						 <li>Usuaris Responsables</li>
+						 </ul>
+				</div>
 						<div id="page1" class="currentPage" >
 							<fieldset>
 								<legend data-th-text="#{servei.form.label.proveidorServei}">Proveïdor del servei</legend>
-								<div class="form-group">
+								<div id="nom-group" class="form-group">
 									<label for="nomServei" class="col-md-3 control-label" data-th-text="#{servei.form.label.nomServei}">Nom del servei</label>
 									<div class="col-md-4">
 										<input type="text" class="form-control" id="nom" data-th-field="*{servei.nom}"/>
@@ -46,8 +61,8 @@
 									</div>
 								</div>
 								<div class="col-md-12">
-									<div class="panel panel-info">
-										<div class="panel-heading">
+									<div id="panel-responsables" class="panel panel-info">
+										<div class="panel-heading ">
 											<label data-th-text="#{servei.form.table.responsable.dadesTitol}">Dades dels responsables técnics</label>
 											<label class="linkCrudAction pull-right">
 												<button class="btn btn-default" id="afegirResponsableButton" type="button" data-toggle="modal">

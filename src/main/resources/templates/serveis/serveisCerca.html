@@ -98,10 +98,13 @@
 										<!-- INICIO BUCLE SISTEMAINFORMACIO.SERVEI -->
 										<div class="panel panel-catalogo" data-th-each="servei : ${sistemaInformacio.serveis}">
 											<div class="panel-heading">
+											<a href="serveis/2">
 												<h3 class="panel-title" data-th-text="${servei.nom}">Nom del servei</h3>
+											</a>
 												<span style="margin-top:-15px;" class="pull-right" data-th-each="alertaComentari : ${serveisForm.registresAlertesComentaris}" data-th-if="(${servei.idServei} == ${alertaComentari[0]} and ${alertaComentari[1]} &gt; 0)">
 													<i class="missatgesPendents fa fa-exclamation-triangle fa-2x" data-th-text="${alertaComentari[1]}">Número</i>
 												</span>
+												
 											</div>
 											<div class="panel-body">
 												<div class="row">
